@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://rooms/statue_emblems/BasicEmblem.tscn" type="PackedScene" id=1]
+
+[node name="RobotEmblem" instance=ExtResource( 1 )]
+emblem_type = 1

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://robot/RobotStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+max_health = 12
+health = 12
+max_heal_kit = 2
+heal_power = 6
+heal_kit = 1
+fire_index = 1
+ice_index = 0
+light_index = 0
+current_type = 0
+fire_fragment = 0
+max_fire_fragment = 3
+ice_fragment = 0
+max_ice_fragment = 2
+light_fragment = 0
+max_light_fragment = 2
+gold_gems = 0

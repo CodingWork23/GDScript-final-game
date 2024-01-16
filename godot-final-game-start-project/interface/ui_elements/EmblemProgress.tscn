@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://interface/ui_elements/EmblemProgress.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+fill_to = Vector2( 0.9, 0.2 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.988827 )
+colors = PoolColorArray( 0.109177, 0.549105, 0.621094, 1, 0.0580902, 0.105469, 0.075487, 1 )
+
+[sub_resource type="GradientTexture2D" id=4]
+gradient = SubResource( 3 )
+fill_from = Vector2( 0.675, 0.05 )
+fill_to = Vector2( 0.308333, 0.979167 )
+
+[node name="EmblemProgress" type="TextureProgress"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 32, 32 )
+size_flags_vertical = 4
+step = 0.0
+texture_under = ExtResource( 1 )
+texture_progress = SubResource( 2 )
+fill_mode = 5
+tint_progress = Color( 1, 1, 1, 0.541176 )
+stretch_margin_left = 64
+stretch_margin_top = 64
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="TextureRect" parent="."]
+show_behind_parent = true
+margin_right = 64.0
+margin_bottom = 64.0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture = SubResource( 4 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+show_behind_parent = true
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 65.0
+margin_bottom = 65.0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+border_color = Color( 0.117647, 0.105882, 0.203922, 1 )
+border_width = 1.9
+editor_only = false
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true

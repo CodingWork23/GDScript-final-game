@@ -1,0 +1,44 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://props/details/table_small.png" type="Texture" id=1]
+[ext_resource path="res://rooms/trader/TradeProduct.gd" type="Script" id=2]
+[ext_resource path="res://pickups/ice_spells/PickupIce.tscn" type="PackedScene" id=3]
+[ext_resource path="res://pickups/fire_spells/PickupFire.tscn" type="PackedScene" id=4]
+[ext_resource path="res://pickups/lightnings_spells/PickupLightning.tscn" type="PackedScene" id=5]
+[ext_resource path="res://pickups/health/pickup_health/PickupHealth.tscn" type="PackedScene" id=6]
+[ext_resource path="res://common/powerup.wav" type="AudioStream" id=7]
+[ext_resource path="res://pickups/health/pickup_extra_health/PickupExtraHealth.tscn" type="PackedScene" id=8]
+[ext_resource path="res://pickups/health/pickup_regeneration/PickupRegeneration.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 29, 22 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 50.5 )
+
+[node name="TradeProduct" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 2 )
+products = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 9 ) ]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 22 )
+shape = SubResource( 1 )
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2( 0, 50.5 )
+shape = SubResource( 2 )
+
+[node name="SpawnPoint" type="Position2D" parent="."]
+position = Vector2( 0, -20 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )

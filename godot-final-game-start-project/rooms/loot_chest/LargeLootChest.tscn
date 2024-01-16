@@ -1,0 +1,77 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://rooms/loot_chest/BasicLootChest.tscn" type="PackedScene" id=1]
+[ext_resource path="res://rooms/loot_chest/props/chest_large_top.png" type="Texture" id=2]
+[ext_resource path="res://rooms/loot_chest/props/chest_large_bottom.png" type="Texture" id=3]
+[ext_resource path="res://rooms/loot_chest/LootChest.gd" type="Script" id=4]
+[ext_resource path="res://pickups/ice_spells/PickupIce.tscn" type="PackedScene" id=5]
+[ext_resource path="res://pickups/health/pickup_health/PickupHealth.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pickups/fire_spells/PickupFire.tscn" type="PackedScene" id=7]
+[ext_resource path="res://pickups/lightnings_spells/PickupLightning.tscn" type="PackedScene" id=8]
+[ext_resource path="res://pickups/gems/gold/SmallGoldgem.tscn" type="PackedScene" id=9]
+[ext_resource path="res://pickups/gems/gold/NormalGoldGem.tscn" type="PackedScene" id=10]
+[ext_resource path="res://pickups/gems/gold/LargeGoldGem.tscn" type="PackedScene" id=11]
+[ext_resource path="res://pickups/health/pickup_extra_health/PickupExtraHealth.tscn" type="PackedScene" id=12]
+[ext_resource path="res://pickups/health/pickup_regeneration/PickupRegeneration.tscn" type="PackedScene" id=13]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 59, 25.5 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 110.51
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChestEmpty/ChestFull:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "open"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("ChestEmpty/ChestFull:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -25 ) ]
+}
+
+[node name="LargeLootChest" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+chest_inventory = [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
+last_gems = [ ExtResource( 11 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 13 ) ]
+max_item_count = 6
+max_last_item_count = 2
+
+[node name="ChestEmpty" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="ChestFull" parent="ChestEmpty" index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, 14.5 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" parent="DetectionZone" index="0"]
+position = Vector2( 0, 16 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+anims/RESET = SubResource( 3 )
+anims/open = SubResource( 4 )

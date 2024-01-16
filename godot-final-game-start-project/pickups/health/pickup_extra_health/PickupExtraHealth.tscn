@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://pickups/Pickup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://pickups/health/pickup_health.wav" type="AudioStream" id=2]
+[ext_resource path="res://pickups/health/pickup_extra_health/pickup_heart_darkpink.png" type="Texture" id=3]
+[ext_resource path="res://pickups/health/pickup_extra_health/PickupExtraHealth.gd" type="Script" id=4]
+
+[node name="PickupExtraHealth" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+extra_health = 1
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 3 )
+
+[node name="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource( 2 )
+pitch_scale = 0.9
+attenuation = 0.25

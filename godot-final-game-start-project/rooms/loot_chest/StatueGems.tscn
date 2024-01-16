@@ -1,0 +1,38 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://rooms/loot_chest/BasicLootChest.tscn" type="PackedScene" id=1]
+[ext_resource path="res://rooms/loot_chest/BreakableChest.gd" type="Script" id=2]
+[ext_resource path="res://props/details/statue_gems.png" type="Texture" id=3]
+[ext_resource path="res://props/details/statue_ruin.png" type="Texture" id=4]
+[ext_resource path="res://pickups/gems/gold/SmallGoldgem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://pickups/gems/gold/LargeGoldGem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pickups/gems/gold/NormalGoldGem.tscn" type="PackedScene" id=7]
+[ext_resource path="res://pickups/ice_spells/PickupIce.tscn" type="PackedScene" id=8]
+[ext_resource path="res://pickups/lightnings_spells/PickupLightning.tscn" type="PackedScene" id=9]
+[ext_resource path="res://pickups/health/pickup_health/PickupHealth.tscn" type="PackedScene" id=10]
+[ext_resource path="res://pickups/fire_spells/PickupFire.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 58, 49 )
+
+[node name="StatueGems" instance=ExtResource( 1 )]
+collision_layer = 20
+script = ExtResource( 2 )
+chest_inventory = [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 5 ) ]
+max_item_count = 1
+last_gems = [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ) ]
+health = 10
+
+[node name="ChestEmpty" parent="." index="0"]
+position = Vector2( 0, -13 )
+texture = ExtResource( 4 )
+
+[node name="ChestFull" parent="ChestEmpty" index="0"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 3, 46 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="DetectionZone" index="0"]
+position = Vector2( 3, 46 )

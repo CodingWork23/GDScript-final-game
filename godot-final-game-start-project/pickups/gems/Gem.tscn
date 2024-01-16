@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://pickups/Pickup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://pickups/gems/Gem.gd" type="Script" id=2]
+[ext_resource path="res://props/details/gems_mixed_1.png" type="Texture" id=3]
+[ext_resource path="res://common/pickup.wav" type="AudioStream" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 286.002
+
+[node name="Gem" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+gem_value = 1
+speed = 1000.0
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 3 )
+
+[node name="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource( 4 )
+volume_db = -0.382
+
+[node name="FollowZone" type="Area2D" parent="." index="6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FollowZone" index="0"]
+shape = SubResource( 1 )

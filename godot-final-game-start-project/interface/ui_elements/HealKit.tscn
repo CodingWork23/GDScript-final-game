@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interface/ui_elements/bar_points/health_point.png" type="Texture" id=1]
+[ext_resource path="res://interface/ui_elements/HealKit.gd" type="Script" id=2]
+[ext_resource path="res://interface/ui_elements/bar_points/health_point_bg.png" type="Texture" id=3]
+
+[node name="HealKit" type="HBoxContainer"]
+modulate = Color( 0, 0.345098, 1, 1 )
+margin_right = 364.0
+margin_bottom = 54.0
+mouse_filter = 2
+custom_constants/separation = 8
+script = ExtResource( 2 )
+kit_full = ExtResource( 1 )
+kit_empty = ExtResource( 3 )

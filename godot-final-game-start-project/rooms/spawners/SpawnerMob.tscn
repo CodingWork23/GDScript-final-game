@@ -1,0 +1,20 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://rooms/spawners/SpawnerMob.gd" type="Script" id=1]
+[ext_resource path="res://rooms/spawners/spawner_mob.svg" type="Texture" id=2]
+[ext_resource path="res://mobs/sword/Sword.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mobs/shield/Shield.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mobs/shield/SoldierShield.tscn" type="PackedScene" id=6]
+[ext_resource path="res://mobs/bomb/SnipeBomb.tscn" type="PackedScene" id=7]
+[ext_resource path="res://mobs/groups/poisen_knife/TrippleKnife.tscn" type="PackedScene" id=8]
+[ext_resource path="res://mobs/groups/flash_bomb/FlashBombs.tscn" type="PackedScene" id=9]
+[ext_resource path="res://mobs/shield/GuardShield.tscn" type="PackedScene" id=10]
+[ext_resource path="res://game_events.tres" type="Resource" id=11]
+
+[node name="SpawnerMob" type="Sprite"]
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+list = [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 10 ) ]
+game_events = ExtResource( 11 )
+spawn_chance = 75.0

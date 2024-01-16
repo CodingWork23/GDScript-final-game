@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://bullets/particle_bullet.png" type="Texture" id=1]
+[ext_resource path="res://bullets/lightning.tres" type="Texture" id=2]
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0.151136 ), 0.0, 0.0, 0, 0, Vector2( 0.230337, 0.978409 ), -0.196143, -0.196143, 0, 0, Vector2( 0.47191, 0.496591 ), -1.47107, -1.47107, 0, 0, Vector2( 0.741573, 0.151136 ), 0.0449495, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 1
+emission_sphere_radius = 9.06
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 63.54
+initial_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 3.96
+scale = 0.5
+scale_curve = SubResource( 5 )
+color_ramp = ExtResource( 2 )
+
+[node name="CollideEffect" type="Particles2D"]
+emitting = false
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+process_material = SubResource( 6 )
+texture = ExtResource( 1 )

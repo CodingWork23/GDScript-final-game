@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=10 format=2]
+
+[ext_resource path="res://GameEvents.gd" type="Script" id=1]
+[ext_resource path="res://mobs/groups/flash_bomb/FlashBombs.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mobs/groups/poisen_knife/TrippleKnife.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mobs/shield/SoldierShield.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mobs/shield/Shield.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mobs/shield/GuardShield.tscn" type="PackedScene" id=6]
+[ext_resource path="res://mobs/sword/Sword.tscn" type="PackedScene" id=7]
+[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=8]
+[ext_resource path="res://mobs/bomb/SnipeBomb.tscn" type="PackedScene" id=9]
+
+[resource]
+script = ExtResource( 1 )
+current_difficulty = 0
+level_amount = 6
+current_level = 1
+mob_list = {
+0: [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 7 ) ],
+1: [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 5 ) ],
+2: [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 6 ) ]
+}
+grid_width = [ 3, 4, 5 ]
+grid_height = [ 2, 3, 4 ]
+max_waves = [ 1, 2, 3 ]
+mob_spawn_chance = [ 60.0, 75.0, 80.0 ]
+pickup_spawn_chance = [ 30.0, 35.0, 40.0 ]
+extra_payment = 100
