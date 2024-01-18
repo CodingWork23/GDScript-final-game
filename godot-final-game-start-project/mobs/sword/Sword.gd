@@ -3,6 +3,7 @@ extends Mob
 
 onready var hitbox := $Sprite/Hitbox
 onready var dash_sound := $DashSound
+onready var hitbox_timer := $Sprite/Hitbox/Timer
 
 export var max_distance := 50
 export(float, 1, 5) var dash_factor := 4.0
@@ -15,6 +16,7 @@ var vector : Vector2
 
 func _ready() -> void:
 	hitbox.connect("body_entered", self, "_on_Hitbox_body_entered")
+	hitbox_timer.connect("timeout", self, "_hitbox_enable")
 
 func _physics_process(delta: float) -> void:
 	_dash(delta)
@@ -65,6 +67,11 @@ func _on_BeforeAttackTimer_timeout() -> void:
 func _on_Hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage(damage)
+	hitbox_timer.start()
+	hitbox.monitoring = false
+
+func _hitbox_enable() -> void:
+	hitbox.monitoring = true
 
 func _on_DetectionArea_body_entered(body: Robot) -> void:
 	_target = body

@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://mobs/Mob.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mobs/hammer/hammer_inactive.png" type="Texture" id=2]
+[ext_resource path="res://mobs/hammer/Hammer.gd" type="Script" id=3]
+[ext_resource path="res://pickups/gems/gold/NormalGoldGem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://spells/fire_spray/shoot_fire.wav" type="AudioStream" id=5]
+[ext_resource path="res://pickups/gems/gold/SmallGoldgem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://mobs/hammer/hammer_active.png" type="Texture" id=7]
+[ext_resource path="res://mobs/hammer/SpriteFlip.gd" type="Script" id=8]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 72, 16 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 36, 52 )
+
+[sub_resource type="CircleShape2D" id=2]
+resource_local_to_scene = true
+radius = 1393.03
+
+[sub_resource type="CircleShape2D" id=3]
+resource_local_to_scene = true
+radius = 444.145
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 49 )
+
+[node name="Hammer" instance=ExtResource( 1 )]
+collision_mask = 22
+script = ExtResource( 3 )
+damage = 2
+health = 20
+normal_speed = 200.0
+mob_loot = [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 4 ) ]
+max_item_count = 6
+max_distance = 150
+dash_factor = 2.5
+_ray_cast_enabled = false
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( -1, 7 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="1"]
+position = Vector2( 39, 7 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
+shape = SubResource( 3 )
+
+[node name="Sprite" parent="." index="4"]
+texture = ExtResource( 2 )
+script = ExtResource( 8 )
+
+[node name="Alert" parent="Sprite" index="0"]
+visible = false
+texture = ExtResource( 7 )
+
+[node name="Hitbox" type="Area2D" parent="Sprite" index="1"]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" index="0"]
+position = Vector2( 40, 7 )
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="Sprite/Hitbox" index="1"]
+
+[node name="RemoteHurtbox1" type="RemoteTransform2D" parent="Sprite" index="2"]
+position = Vector2( -1, 7 )
+remote_path = NodePath("../../CollisionShape2D")
+
+[node name="RemoteHurtbox2" type="RemoteTransform2D" parent="Sprite" index="3"]
+position = Vector2( 39, 7 )
+remote_path = NodePath("../../CollisionShape2D2")
+
+[node name="Shadow" parent="." index="5"]
+position = Vector2( 0, 64 )
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource( 5 )
+pitch_scale = 0.8
+
+[node name="CoolDownTimer" parent="." index="9"]
+wait_time = 6.0
+
+[node name="BeforeAttackTimer" parent="." index="10"]
+wait_time = 0.5

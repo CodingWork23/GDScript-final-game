@@ -52,6 +52,8 @@ monitorable = false
 position = Vector2( 17, -0.5 )
 shape = SubResource( 1 )
 
+[node name="Timer" type="Timer" parent="Sprite/Hitbox" index="1"]
+
 [node name="DashSound" type="AudioStreamPlayer2D" parent="." index="7"]
 stream = ExtResource( 5 )
 
