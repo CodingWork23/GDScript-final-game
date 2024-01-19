@@ -30,9 +30,11 @@ texture_under = ExtResource( 1 )
 texture_progress = SubResource( 2 )
 fill_mode = 5
 tint_progress = Color( 1, 1, 1, 0.541176 )
+nine_patch_stretch = true
 stretch_margin_left = 64
 stretch_margin_top = 64
 script = ExtResource( 2 )
+current_emblem = 1
 
 [node name="ColorRect" type="TextureRect" parent="."]
 show_behind_parent = true

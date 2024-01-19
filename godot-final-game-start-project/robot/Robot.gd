@@ -53,12 +53,14 @@ onready var _heal_sound := $HealSound
 onready var _skin := $Skin
 onready var _smoke_particles := $SmokeParticles
 onready var _spell_holder := $SpellHolder
+onready var _animation_emblem := $AnimationEmblem
+
+onready var _ghost_timer := $GhostTimer
 onready var _freeze_timer := $FreezeTimer
 onready var _poisen_duration := $PoisenDurationTimer
 onready var _poisen_range := $PoisenRangeTimer
 onready var _regeneration_timer := $RegenerationTimer
 onready var _heal_timer := $HealTimer
-onready var _animation_emblem := $AnimationEmblem
 onready var _emblem_cooldown_timer := $EmblemCooldownTimer
 
 
@@ -166,10 +168,14 @@ func teleport() -> void:
 
 
 # Called by enemy bullets when they hit the robot.
-func take_damage(amount: int) -> void:
-	if health <= 0 or robot_emblem_is_active:
+func take_damage(amount: int, start_timer: bool = true) -> void:
+	if health <= 0 or robot_emblem_is_active or not _ghost_timer.is_stopped():
 		return
-
+	
+	if start_timer:
+		_ghost_timer.start()
+		_animation_emblem.play("ghost")
+	
 	set_health(health - amount)
 	#healing(amount)
 	# If the health is lower or equal to zero, we're dead, so we disable
@@ -223,7 +229,7 @@ func _start_poisen(poisen_duration: int, poisen_hit_count: int) -> void:
 
 func _take_poisen_damage() -> void:
 	if health > 1:
-		take_damage(1)
+		take_damage(1, false)
 	_poisen_range.start()
 
 func healing_poisen() -> void:
@@ -267,7 +273,7 @@ func use_emblem() -> void:
 		return
 
 func robot_emblem() -> void:
-	var cooldown := 10.0
+	var cooldown := 20.0
 	_emblem_cooldown_timer.wait_time = cooldown
 	_emblem_cooldown_timer.start()
 	robot_emblem_is_active = true
@@ -281,7 +287,19 @@ func sword_emblem() -> void:
 	pass
 
 func hammer_emblem() -> void:
-	pass
+	var cooldown := 15.0
+	_emblem_cooldown_timer.wait_time = cooldown
+	_emblem_cooldown_timer.start()
+	
+	var Explosion := preload("res://mobs/hammer/Explosion.tscn")
+	var explosion : Area2D = Explosion.instance()
+	explosion.collision_mask -= 1
+	explosion.global_position = global_position
+	explosion.damage = 4
+	
+	get_tree().root.add_child(explosion)
+	Events.emit_signal("set_emblem_cooldown", cooldown)
+	
 
 func mace_emblem() -> void:
 	pass

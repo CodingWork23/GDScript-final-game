@@ -10,7 +10,7 @@
 [ext_resource path="res://pickups/lightnings_spells/PickupLightning.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interface/OnScreenUI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://rooms/loot_chest/TableLoot.tscn" type="PackedScene" id=10]
-[ext_resource path="res://rooms/statue_emblems/BasicEmblem.tscn" type="PackedScene" id=11]
+[ext_resource path="res://rooms/spawners/SpawnerEmblem.tscn" type="PackedScene" id=11]
 [ext_resource path="res://rooms/loot_chest/PotClayGems.tscn" type="PackedScene" id=12]
 [ext_resource path="res://rooms/spawners/SpawnerLootChest.tscn" type="PackedScene" id=13]
 [ext_resource path="res://rooms/trader/TradeProduct.tscn" type="PackedScene" id=14]
@@ -110,6 +110,9 @@ position = Vector2( 192, 320 )
 position = Vector2( 704, 448 )
 spawn_chance = 100.0
 
+[node name="SpawnerLootChest2" parent="Spawners" instance=ExtResource( 11 )]
+position = Vector2( 960, 832 )
+
 [node name="PickupLightning" parent="." instance=ExtResource( 8 )]
 position = Vector2( 576, 704 )
 
@@ -147,9 +150,5 @@ position = Vector2( 192, 576 )
 [node name="LargeLootChest" parent="." instance=ExtResource( 19 )]
 position = Vector2( 448, 128 )
 
-[node name="BasicEmblem" parent="." instance=ExtResource( 11 )]
-position = Vector2( 960, 768 )
-emblem_type = 1
-
 [node name="Hammer" parent="." instance=ExtResource( 17 )]
-position = Vector2( 1152, 448 )
+position = Vector2( 1088, 384 )
