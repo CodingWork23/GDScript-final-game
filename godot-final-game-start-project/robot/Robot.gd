@@ -21,7 +21,8 @@ export(Emblems) var current_emblem := Emblems.NONE setget set_current_emblem
 var robot_emblem_is_active : bool = false setget set_robot_emblem_is_active
 var sword_emblem_is_active : bool = false
 
-export var max_heal_kit := 2
+export var max_heal_kit := 2 setget set_max_heal_kit
+export var heal_kit := 1 setget set_heal_kit
 
 export var heal_power := 6
 # The character's speed in pixels per second.
@@ -38,7 +39,6 @@ export(int, 0, 9999) var gold_gems := 0
 # max_health or below 0.
 var max_health := 10 setget set_max_health
 var health := max_health setget set_health
-export var heal_kit := 1 setget set_heal_kit
 
 
 var velocity := Vector2.ZERO
@@ -75,13 +75,14 @@ func _ready() -> void:
 	show()
 	if robot_stats:
 		#max_health = robot_stats.max_health
-		max_heal_kit = robot_stats.max_heal_kit
 		heal_power = robot_stats.heal_power
 		
 		set_max_health(robot_stats.max_health)
 		set_health(robot_stats.health)
+		set_max_heal_kit(robot_stats.max_heal_kit)
 		set_heal_kit(robot_stats.heal_kit)
 		set_gold_gems(robot_stats.gold_gems)
+		set_current_emblem(robot_stats.current_emblem)
 	else:
 		set_health(max_health)
 		set_heal_kit(heal_kit)
@@ -138,6 +139,10 @@ func increase_max_health(increase_value: int) -> void:
 func healing(heal: int) -> void:
 	set_health(health + heal)
 	_heal_sound.play()
+
+func set_max_heal_kit(new_value: int) -> void:
+	max_heal_kit = new_value
+	Events.emit_signal("player_max_heal_kit_changed", max_heal_kit)
 
 func set_heal_kit(new_heal_kit: int) -> void:
 	heal_kit = clamp(new_heal_kit, 0, max_heal_kit)
@@ -280,6 +285,8 @@ func _stop_regeneration() -> void:
 func set_current_emblem(new_emblem: int) -> void:
 	current_emblem = new_emblem
 	Events.emit_signal("set_emblem_icon", current_emblem)
+	if robot_stats:
+		robot_stats.current_emblem = current_emblem
 
 func use_emblem() -> void:
 	if not _emblem_cooldown_timer.is_stopped():
@@ -322,6 +329,7 @@ func hammer_emblem() -> void:
 	var cooldown := 15.0
 	_emblem_cooldown_timer.wait_time = cooldown
 	_emblem_cooldown_timer.start()
+	Events.emit_signal("set_emblem_cooldown", cooldown)
 	
 	var Explosion := preload("res://mobs/hammer/Explosion.tscn")
 	var explosion : Area2D = Explosion.instance()
@@ -330,11 +338,22 @@ func hammer_emblem() -> void:
 	explosion.damage = 4
 	
 	get_tree().root.add_child(explosion)
-	Events.emit_signal("set_emblem_cooldown", cooldown)
+	
 	
 
 func mace_emblem() -> void:
-	pass
+	var cooldown := 20.0
+	_emblem_cooldown_timer.wait_time = cooldown
+	_emblem_cooldown_timer.start()
+	Events.emit_signal("set_emblem_cooldown", cooldown)
+	
+	var spinning_cannon : SpinningCannon = preload("res://spells/SpinningCannon.tscn").instance()
+	spinning_cannon._target = spinning_cannon.Target.MOB
+	spinning_cannon.bullet_scene = preload("res://bullets/fire_spike/FireSpike.tscn")
+	spinning_cannon.max_range = 500.0
+	spinning_cannon.max_bullet_speed = 600.0
+	
+	add_child(spinning_cannon)
 
 
 

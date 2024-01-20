@@ -12,6 +12,7 @@ func _ready() -> void:
 	_set_score(0)
 	
 	Events.connect("player_health_changed", self, "_on_player_health_changed")
+	Events.connect("player_max_heal_kit_changed", self, "_on_player_max_heal_kit_changed")
 	Events.connect("player_heal_kit_changed", self, "_on_player_heal_kit_changed")
 	#Events.connect("mob_died", self, "_on_Events_mob_dies")
 	Events.connect("set_max_health", self, "_set_player_max_health")
@@ -24,6 +25,9 @@ func _set_player_max_health(max_health: int) -> void:
 
 func _on_player_health_changed(new_health: int) -> void:
 	_health_bar.health = new_health
+
+func _on_player_max_heal_kit_changed(new_max_heal_kit: int) -> void:
+	_heal_kit.max_heal_kit = new_max_heal_kit
 
 func _on_player_heal_kit_changed(new_heal_kit: int) -> void:
 	_heal_kit.heal_kit = new_heal_kit

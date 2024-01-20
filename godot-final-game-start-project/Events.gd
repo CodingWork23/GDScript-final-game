@@ -7,6 +7,7 @@ signal set_gold_gems(gem_value)
 signal flash_screen()
 
 signal player_health_changed(new_health)
+signal player_max_heal_kit_changed(new_max_heal_kit)
 signal player_heal_kit_changed(new_heal_kit)
 
 signal set_emblem_cooldown(sec)

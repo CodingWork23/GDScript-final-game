@@ -4,3 +4,4 @@
 
 [node name="RobotEmblem" instance=ExtResource( 1 )]
 emblem_type = 1
+price = 2500

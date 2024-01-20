@@ -2,6 +2,7 @@ class_name RobotStats
 extends Resource
 
 enum SpellType {FIRE, ICE, LIGHT}
+enum Emblems {NONE, ROBOT, SWORD, MACE, HAMMER}
 
 # Health
 export var max_health := 12 setget set_max_health
@@ -24,6 +25,8 @@ export var light_fragment := 0 setget set_light_fragment
 export var max_light_fragment := 2 setget set_max_light_fragment
 # Gems
 export(int, 0, 9999) var gold_gems := 0 setget set_gold_gems
+# Emblem
+export(Emblems) var current_emblem := Emblems.NONE setget set_current_emblem
 
 
 # RESET STATS
@@ -48,6 +51,8 @@ var _light_fragment := light_fragment
 var _max_light_fragment := max_light_fragment
 #Gems
 var _gold_gems : int = gold_gems
+# Emblem
+var _current_emblem := current_emblem
 
 
 func save() -> void:
@@ -74,6 +79,8 @@ func reset_stats() -> void:
 	max_light_fragment = _max_light_fragment
 	# Gems
 	gold_gems = _gold_gems
+	# Emblem
+	current_emblem = _current_emblem
 	save()
 
 # Health
@@ -140,4 +147,9 @@ func set_max_light_fragment(new_value: int) -> void:
 # Gems
 func set_gold_gems(new_value: int) -> void:
 	gold_gems = clamp(new_value, 0, 9999)
+	save()
+
+# Emblem
+func set_current_emblem(new_value: int) -> void:
+	current_emblem = new_value
 	save()

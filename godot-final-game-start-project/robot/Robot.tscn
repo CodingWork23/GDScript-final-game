@@ -360,7 +360,6 @@ tracks/1/keys = {
 collision_mask = 52
 script = ExtResource( 6 )
 robot_stats = ExtResource( 9 )
-current_emblem = 2
 dash_factor = 3.0
 max_distance = 100.0
 
