@@ -9,7 +9,7 @@ radius = 40.4475
 radius = 40.1123
 
 [node name="MovingItem" type="KinematicBody2D"]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 48
 script = ExtResource( 1 )
 

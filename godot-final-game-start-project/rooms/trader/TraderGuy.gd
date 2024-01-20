@@ -3,12 +3,12 @@ extends StaticBody2D
 export var game_events : Resource = null
 
 const product_prices := {
-	preload("res://pickups/health/pickup_health/PickupHealth.tscn") : 800, # Health
-	preload("res://pickups/fire_spells/PickupFire.tscn") : 1000, # Fire
-	preload("res://pickups/ice_spells/PickupIce.tscn") : 1000, # Ice
-	preload("res://pickups/lightnings_spells/PickupLightning.tscn") : 1000, # Lightning
-	preload("res://pickups/health/pickup_extra_health/PickupExtraHealth.tscn") : 1200, # Extra Health
-	preload("res://pickups/health/pickup_regeneration/PickupRegeneration.tscn") : 600 # Regeneration
+	preload("res://pickups/health/pickup_health/PickupHealth.tscn") : 600, # Health
+	preload("res://pickups/fire_spells/PickupFire.tscn") : 800, # Fire
+	preload("res://pickups/ice_spells/PickupIce.tscn") : 800, # Ice
+	preload("res://pickups/lightnings_spells/PickupLightning.tscn") : 800, # Lightning
+	preload("res://pickups/health/pickup_extra_health/PickupExtraHealth.tscn") : 1000, # Extra Health
+	preload("res://pickups/health/pickup_regeneration/PickupRegeneration.tscn") : 400 # Regeneration
 }
 
 onready var price_label := $PriceHint/Label

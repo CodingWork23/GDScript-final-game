@@ -43,7 +43,7 @@ func _move(delta: float) -> void:
 	velocity.y += gravity * delta
 	velocity.x = rand_fall_direction
 	
-	move_and_slide(velocity)
+	velocity = move_and_slide(velocity, Vector2.ZERO)
 
 
 func _on_Area2D_body_entered(body: PhysicsBody2D) -> void:

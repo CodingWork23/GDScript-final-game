@@ -216,10 +216,10 @@ func take_damage(amount: int, start_timer: bool = true) -> void:
 func start_ghost_effect() -> void:
 	_ghost_timer.start()
 	_animation_emblem.play("ghost")
-	_robot_collision.disabled = true
+	collision_layer = 0
 
 func stop_ghost_effect() -> void:
-	_robot_collision.disabled = false
+	collision_layer = 1
 
 # Makes the player interact with nothing and stop receiving inputs
 func _disable() -> void:

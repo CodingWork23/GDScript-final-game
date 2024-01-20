@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://rooms/BaseRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://rooms/spawners/SpawnerPickups.tscn" type="PackedScene" id=2]
 [ext_resource path="res://rooms/spawners/SpawnerMob.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/spawners/SpawnerLootChest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://rooms/spawners/SpawnerMiniBoss.tscn" type="PackedScene" id=5]
 
 [node name="RoomA" instance=ExtResource( 1 )]
 
@@ -34,11 +35,8 @@ position = Vector2( 1088, 960 )
 [node name="SpawnerMob4" parent="Mobs" index="3" instance=ExtResource( 3 )]
 position = Vector2( 1216, 256 )
 
-[node name="SpawnerMob5" parent="Mobs" index="4" instance=ExtResource( 3 )]
-position = Vector2( 768, 960 )
-
-[node name="SpawnerMob6" parent="Mobs" index="5" instance=ExtResource( 3 )]
-position = Vector2( 1216, 640 )
+[node name="SpawnerMiniBoss" parent="Mobs" index="4" instance=ExtResource( 5 )]
+position = Vector2( 704, 576 )
 
 [node name="SpawnerPickups" parent="Items" index="0" instance=ExtResource( 2 )]
 position = Vector2( 320, 448 )
@@ -53,4 +51,4 @@ position = Vector2( 960, 448 )
 position = Vector2( 960, 576 )
 
 [node name="SpawnerTeleporter" parent="." index="9"]
-position = Vector2( 704, 576 )
+position = Vector2( 704, 704 )

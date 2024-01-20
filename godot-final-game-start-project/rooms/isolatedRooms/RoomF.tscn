@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://rooms/BaseRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://rooms/spawners/SpawnerPickups.tscn" type="PackedScene" id=2]
 [ext_resource path="res://rooms/spawners/SpawnerMob.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/spawners/SpawnerLootChest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://rooms/obstacles/pots/PotStoneStacked.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rooms/obstacles/tables/LargeTableRight.tscn" type="PackedScene" id=6]
+[ext_resource path="res://rooms/obstacles/pots/PotClay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://rooms/obstacles/pots/PotStone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://rooms/obstacles/tables/SmallTablePots.tscn" type="PackedScene" id=9]
+[ext_resource path="res://rooms/spawners/SpawnerMiniBoss.tscn" type="PackedScene" id=10]
 
 [node name="RoomA" instance=ExtResource( 1 )]
 
@@ -23,7 +29,7 @@ tile_data = PoolIntArray( -65535, 1, 65540, -65534, 1, 262148, -65533, 1, 65541,
 tile_data = PoolIntArray( -131068, 1, 0, -131065, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, 65535, 1, 0, 11, 1, 0, 131071, 1, 0, 65536, 0, 0, 65539, 0, 0, 65543, 0, 0, 65544, 0, 0, 65547, 1, 0, 196607, 1, 0, 131072, 1, 0, 131075, 1, 0, 131076, 0, 0, 131079, 1, 0, 131080, 1, 0, 131083, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 0, 0, 196619, 1, 0, 196620, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 0, 0, 262153, 0, 0, 327681, 0, 0, 327682, 0, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327689, 1, 0, 458750, 1, 0, 458751, 1, 0, 393217, 1, 0, 393218, 1, 0, 393221, 1, 0, 393222, 1, 0, 393227, 1, 0, 393228, 1, 0, 524287, 1, 0, 458763, 1, 0, 589823, 1, 0, 524298, 0, 0, 524299, 1, 0, 655359, 1, 0, 589824, 0, 0, 589828, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 1, 0, 589835, 1, 0, 720895, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 720900, 1, 0, 720903, 1, 0, 786436, 1, 0, 786439, 1, 0 )
 
 [node name="SpawnerMob" parent="Mobs" index="0" instance=ExtResource( 3 )]
-position = Vector2( 768, 1152 )
+position = Vector2( 704, 960 )
 
 [node name="SpawnerMob2" parent="Mobs" index="1" instance=ExtResource( 3 )]
 position = Vector2( 1088, 960 )
@@ -34,14 +40,14 @@ position = Vector2( 832, 448 )
 [node name="SpawnerMob4" parent="Mobs" index="3" instance=ExtResource( 3 )]
 position = Vector2( 1152, 64 )
 
-[node name="SpawnerMob5" parent="Mobs" index="4" instance=ExtResource( 3 )]
-position = Vector2( 1344, 896 )
+[node name="SpawnerMob6" parent="Mobs" index="4" instance=ExtResource( 3 )]
+position = Vector2( 128, 960 )
 
-[node name="SpawnerMob6" parent="Mobs" index="5" instance=ExtResource( 3 )]
-position = Vector2( 128, 1024 )
-
-[node name="SpawnerMob7" parent="Mobs" index="6" instance=ExtResource( 3 )]
+[node name="SpawnerMob7" parent="Mobs" index="5" instance=ExtResource( 3 )]
 position = Vector2( 320, 64 )
+
+[node name="SpawnerMiniBoss" parent="Mobs" index="6" instance=ExtResource( 10 )]
+position = Vector2( 1024, 512 )
 
 [node name="SpawnerPickups" parent="Items" index="0" instance=ExtResource( 2 )]
 position = Vector2( 256, 320 )
@@ -60,3 +66,30 @@ position = Vector2( 512, 960 )
 
 [node name="SpawnerTeleporter" parent="." index="9"]
 position = Vector2( 832, 1024 )
+
+[node name="SmallTablePots" parent="Obstacles" index="0" instance=ExtResource( 9 )]
+position = Vector2( 64, 1152 )
+
+[node name="LargeTableRight" parent="Obstacles" index="1" instance=ExtResource( 6 )]
+position = Vector2( 1332, 982 )
+
+[node name="PotStone" parent="Obstacles" index="2" instance=ExtResource( 8 )]
+position = Vector2( 1377, 927 )
+
+[node name="PotClay" parent="Obstacles" index="3" instance=ExtResource( 7 )]
+position = Vector2( 1367, 994 )
+
+[node name="PotClayStacked" parent="Obstacles" index="4" instance=ExtResource( 5 )]
+position = Vector2( 549, 267 )
+
+[node name="PotStone2" parent="Obstacles" index="5" instance=ExtResource( 8 )]
+position = Vector2( 596, 283 )
+
+[node name="PotClay2" parent="Obstacles" index="6" instance=ExtResource( 7 )]
+position = Vector2( 581, 242 )
+
+[node name="PotClayStacked2" parent="Obstacles" index="7" instance=ExtResource( 5 )]
+position = Vector2( 545, 1178 )
+
+[node name="PotStone3" parent="Obstacles" index="8" instance=ExtResource( 8 )]
+position = Vector2( 571, 1149 )

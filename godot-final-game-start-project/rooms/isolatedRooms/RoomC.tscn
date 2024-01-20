@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://rooms/BaseRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://rooms/spawners/SpawnerPickups.tscn" type="PackedScene" id=2]
 [ext_resource path="res://rooms/spawners/SpawnerMob.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/spawners/SpawnerLootChest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://rooms/obstacles/pots/PotStoneStacked.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rooms/obstacles/pots/PotClayStacked.tscn" type="PackedScene" id=6]
+[ext_resource path="res://rooms/obstacles/pots/PotStone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://rooms/obstacles/tables/SmallTablePots.tscn" type="PackedScene" id=8]
+[ext_resource path="res://rooms/obstacles/tables/LargeTablePots.tscn" type="PackedScene" id=9]
+[ext_resource path="res://rooms/obstacles/tables/LargeTableLeft.tscn" type="PackedScene" id=10]
+[ext_resource path="res://rooms/spawners/SpawnerMiniBoss.tscn" type="PackedScene" id=11]
 
 [node name="RoomA" instance=ExtResource( 1 )]
 
@@ -40,6 +47,9 @@ position = Vector2( 896, 512 )
 [node name="SpawnerMob6" parent="Mobs" index="5" instance=ExtResource( 3 )]
 position = Vector2( 1280, 576 )
 
+[node name="SpawnerMiniBoss" parent="Mobs" index="6" instance=ExtResource( 11 )]
+position = Vector2( 576, 832 )
+
 [node name="SpawnerPickups" parent="Items" index="0" instance=ExtResource( 2 )]
 position = Vector2( 832, 576 )
 
@@ -51,3 +61,27 @@ position = Vector2( 1280, 256 )
 
 [node name="SpawnerTeleporter" parent="." index="9"]
 position = Vector2( 128, 1152 )
+
+[node name="LargeTableLeft" parent="Obstacles" index="0" instance=ExtResource( 10 )]
+position = Vector2( 452, 675 )
+
+[node name="SmallTablePots" parent="Obstacles" index="1" instance=ExtResource( 8 )]
+position = Vector2( 1240, 918 )
+
+[node name="PotClayStacked" parent="Obstacles" index="2" instance=ExtResource( 5 )]
+position = Vector2( 166, 146 )
+
+[node name="PotStone" parent="Obstacles" index="3" instance=ExtResource( 7 )]
+position = Vector2( 1190, 20 )
+
+[node name="PotClayStacked2" parent="Obstacles" index="4" instance=ExtResource( 6 )]
+position = Vector2( 1144, 53 )
+
+[node name="LargeTableRight" parent="Obstacles" index="5" instance=ExtResource( 9 )]
+position = Vector2( 1047, 314 )
+
+[node name="PotStone2" parent="Obstacles" index="6" instance=ExtResource( 7 )]
+position = Vector2( 1114, 268 )
+
+[node name="PotClayStacked3" parent="Obstacles" index="7" instance=ExtResource( 6 )]
+position = Vector2( 1052, 257 )

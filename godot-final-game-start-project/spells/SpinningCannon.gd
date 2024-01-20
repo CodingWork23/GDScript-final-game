@@ -18,11 +18,12 @@ func _ready() -> void:
 	for cannon in get_children():
 		cannon.bullet_scene = bullet_scene
 		cannon.shoot_duration_timer.wait_time = duration
-		cannon.bullet_per_sec = bullet_per_seconds
+		cannon.shoot_rate_timer.wait_time = 1.0 / bullet_per_seconds
 		cannon.random_angle_degrees = random_angle_degrees
 		cannon.max_range = max_range
 		cannon.max_bullet_speed = max_bullet_speed
 		cannon._target = _target
+		cannon._audio.volume_db = -1
 		
 		cannon.start_spray()
 	

@@ -8,16 +8,19 @@ const Bullet_Masks := {
 	Target.MOB : 18
 }
 
-export(Target) var _target := Target.NONE
-export(float, 1.0, 20.0, 1.0) var bullet_per_sec := 5.0
-
 onready var shoot_rate_timer := $ShootRateTimer
 onready var shoot_duration_timer := $ShootDurationTimer
 onready var hand_right := $HandRight
 onready var hand_left := $HandLeft
 
+export(Target) var _target := Target.NONE
+var bullet_per_sec := 5.0 #setget set_bullet_per_sec
+
+
+
 func _ready() -> void:
-	shoot_rate_timer.wait_time = 1 / bullet_per_sec
+	#set_bullet_per_sec(bullet_per_sec)
+	
 	
 	shoot_rate_timer.connect("timeout", self, "shoot")
 	shoot_duration_timer.connect("timeout", self, "stop_shooting")
@@ -25,7 +28,13 @@ func _ready() -> void:
 	hand_left.texture = null
 	hand_right.texture = null
 
+func set_bullet_per_sec(new_value: float) -> void:
+	bullet_per_sec = new_value
+	yield(self, "ready")
+	shoot_rate_timer.wait_time = 1.0 / bullet_per_sec
+
 func start_spray() -> void:
+	#yield(self, "ready")
 	shoot()
 	shoot_duration_timer.start()
 

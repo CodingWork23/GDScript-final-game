@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://rooms/spawners/SpawnerMiniBoss.gd" type="Script" id=1]
+[ext_resource path="res://common/chance-enemy.svg" type="Texture" id=2]
+[ext_resource path="res://mobs/hammer/Hammer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mobs/mace/Mace.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game_events.tres" type="Resource" id=11]
+
+[node name="SpawnerMiniBoss" type="Sprite"]
+position = Vector2( -1.90735e-06, -1.90735e-06 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+list = [ ExtResource( 4 ), ExtResource( 3 ) ]
+game_events = ExtResource( 11 )

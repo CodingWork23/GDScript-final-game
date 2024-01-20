@@ -35,6 +35,7 @@ func loot_chest() -> void:
 		drop_item()
 	item_count = 0
 	if not last_gems:
+		_disable()
 		return
 	for _i in range(last_item_count):
 		drop_last_item()
@@ -46,18 +47,26 @@ func drop_item() -> void:
 	var random_inventory_index := randi() % chest_inventory.size()
 	var item : Pickup = chest_inventory[random_inventory_index].instance()
 	var moving_item := MovingItem.new()
+	moving_item.collision_mask = 48
+	moving_item.fall_direction = 150
 	
 	add_child(moving_item)
 	moving_item.add_child(item)
+	
+	moving_item.spawn_position += 80
 
 func drop_last_item() -> void:
 	randomize()
 	var random_inventory_index := randi() % last_gems.size()
 	var item : Pickup = last_gems[random_inventory_index].instance()
 	var moving_item := MovingItem.new()
+	moving_item.collision_mask = 48
+	moving_item.fall_direction = 150
 	
 	add_child(moving_item)
 	moving_item.add_child(item)
+	
+	moving_item.spawn_position += 80
 
 
 func _on_DetectionZone_body_entered(body: Robot) -> void:

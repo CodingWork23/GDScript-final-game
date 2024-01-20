@@ -5,10 +5,11 @@
 [ext_resource path="res://rooms/statue_emblems/RobotEmblem.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/statue_emblems/SwordEmblem.tscn" type="PackedScene" id=4]
 [ext_resource path="res://rooms/statue_emblems/MaceEmblem.tscn" type="PackedScene" id=5]
-[ext_resource path="res://rooms/spawners/spawner_pickup.svg" type="Texture" id=6]
+[ext_resource path="res://common/chance-drop.svg" type="Texture" id=6]
 
-[node name="SpawnerLootChest" type="Sprite"]
-modulate = Color( 0.309804, 1, 0.545098, 1 )
+[node name="SpawnerEmblem" type="Sprite"]
+position = Vector2( -1.90735e-06, -1.90735e-06 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 script = ExtResource( 2 )
 list = [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 4 ) ]
