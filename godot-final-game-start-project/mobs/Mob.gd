@@ -138,6 +138,7 @@ func take_damage(amount: int) -> void:
 	else:
 		_animation_player.stop()
 		_animation_player.play("hit")
+		_animation_player.queue("hover")
 
 
 # Disables the mob, plays the "die" animation and the "die" sound. Emits

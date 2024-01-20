@@ -4,19 +4,19 @@
 
 [resource]
 script = ExtResource( 1 )
-max_health = 16
-health = 7
-max_heal_kit = 15
-heal_power = 12
-heal_kit = 7
-fire_index = 1
+max_health = 13
+health = 11
+max_heal_kit = 2
+heal_power = 6
+heal_kit = 1
+fire_index = 2
 ice_index = 0
 light_index = 0
 current_type = 0
 fire_fragment = 0
-max_fire_fragment = 3
+max_fire_fragment = 4
 ice_fragment = 0
 max_ice_fragment = 2
 light_fragment = 0
 max_light_fragment = 2
-gold_gems = 350
+gold_gems = 470

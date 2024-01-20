@@ -33,8 +33,6 @@ func shock() -> void:
 	health += shock_area.damage
 
 func _on_Hitbox_body_entered(body: Node2D) -> void:
-	hitbox_timer.start()
-	hitbox_collision.disabled = true
 	if body.has_method("take_damage"):
 		body.take_damage(damage, false)
 	if is_attacking:

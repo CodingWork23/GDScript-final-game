@@ -19,6 +19,7 @@ export var robot_stats : Resource = null
 
 export(Emblems) var current_emblem := Emblems.NONE setget set_current_emblem
 var robot_emblem_is_active : bool = false setget set_robot_emblem_is_active
+var sword_emblem_is_active : bool = false
 
 export var max_heal_kit := 2
 
@@ -28,6 +29,8 @@ export var normal_speed := 650.0
 # Controls how quickly the body reaches its desired velocity. A value of 1 makes
 # the character move instantly at its maximum speed.
 export(float, 0.01, 1.0) var drag_factor := 0.12
+export(float, 1.0, 8.0, 0.25) var dash_factor := 4.0
+export(float, 50.0, 500.0, 1.0) var max_distance := 150.0
 
 export(int, 0, 9999) var gold_gems := 0
 
@@ -39,6 +42,8 @@ export var heal_kit := 1 setget set_heal_kit
 
 
 var velocity := Vector2.ZERO
+var desired_velocity : Vector2
+var distance : float
 
 onready var speed := normal_speed
 
@@ -50,10 +55,12 @@ onready var _camera: ShakingCamera2D = $ShakingCamera2D
 onready var _damage_audio = $DamageAudio
 onready var _death_audio = $DeathAudio
 onready var _heal_sound := $HealSound
+onready var _dash_sound := $DashSound
 onready var _skin := $Skin
 onready var _smoke_particles := $SmokeParticles
 onready var _spell_holder := $SpellHolder
 onready var _animation_emblem := $AnimationEmblem
+onready var _robot_collision := $CollisionShape2D
 
 onready var _ghost_timer := $GhostTimer
 onready var _freeze_timer := $FreezeTimer
@@ -89,17 +96,27 @@ func _ready() -> void:
 	_poisen_duration.connect("timeout", self, "healing_poisen")
 	_regeneration_timer.connect("timeout", self, "_stop_regeneration")
 	_heal_timer.connect("timeout", self, "_heal_regeneration")
+	_ghost_timer.connect("timeout", self, "stop_ghost_effect")
 	
 	#set_current_emblem(1)
 
 
 # This is the same steering movement code you used since the start of the
 # course.
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	if sword_emblem_is_active:
+		velocity = desired_velocity * dash_factor
+		velocity = move_and_slide(velocity, Vector2.ZERO)
+		distance += speed * delta
+		if distance > max_distance:
+			sword_emblem_is_active = false
+			distance = 0.0
+		return
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var desired_velocity := speed * direction
+	desired_velocity = speed * direction
 	var steering := desired_velocity - velocity
 	velocity += steering * drag_factor
+	
 	velocity = move_and_slide(velocity, Vector2.ZERO)
 	_smoke_particles.emitting = velocity.length() > speed / 2.0
 
@@ -169,12 +186,11 @@ func teleport() -> void:
 
 # Called by enemy bullets when they hit the robot.
 func take_damage(amount: int, start_timer: bool = true) -> void:
-	if health <= 0 or robot_emblem_is_active or not _ghost_timer.is_stopped():
+	if health <= 0 or robot_emblem_is_active:
 		return
 	
 	if start_timer:
-		_ghost_timer.start()
-		_animation_emblem.play("ghost")
+		start_ghost_effect()
 	
 	set_health(health - amount)
 	#healing(amount)
@@ -192,6 +208,13 @@ func take_damage(amount: int, start_timer: bool = true) -> void:
 		_damage_audio.play()
 		_camera.shake_intensity += 0.6
 
+func start_ghost_effect() -> void:
+	_ghost_timer.start()
+	_animation_emblem.play("ghost")
+	_robot_collision.disabled = true
+
+func stop_ghost_effect() -> void:
+	_robot_collision.disabled = false
 
 # Makes the player interact with nothing and stop receiving inputs
 func _disable() -> void:
@@ -284,7 +307,16 @@ func set_robot_emblem_is_active(new_state: bool) -> void:
 	robot_emblem_is_active = new_state
 
 func sword_emblem() -> void:
-	pass
+	if not desired_velocity:
+		return
+	var cooldown := 5.0
+	_emblem_cooldown_timer.wait_time = cooldown
+	_emblem_cooldown_timer.start()
+	Events.emit_signal("set_emblem_cooldown", cooldown)
+	
+	sword_emblem_is_active = true
+	start_ghost_effect()
+	_dash_sound.play()
 
 func hammer_emblem() -> void:
 	var cooldown := 15.0
