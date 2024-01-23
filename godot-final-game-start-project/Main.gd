@@ -1,3 +1,4 @@
+class_name Main
 extends YSort
 
 export var game_events : Resource = null
@@ -23,15 +24,18 @@ func _ready() -> void:
 		last_room_index = (grid_width * grid_height) - 1
 	
 	generate_level()
-	_music_player.play()
-	_pause_screen.hide()
-	_animation_player.play("overview")
-	_animation_player.queue("start_game")
+	on_ready_function()
 	
 	_animation_player.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
 	Events.connect("end_game", self, "_end_game")
 	Events.connect("next_game", self, "_next_game")
 	Events.connect("flash_screen", self, "_flash_screen")
+
+func on_ready_function() -> void:
+	_music_player.play()
+	_pause_screen.hide()
+	_animation_player.play("overview")
+	_animation_player.queue("start_game")
 
 func generate_level() -> void:
 	randomize()
@@ -86,7 +90,7 @@ func _on_AnimationPlayer_animation_finished(animation: String) -> void:
 		if game_events.current_level == game_events.level_amount:
 			game_events.current_level = 1
 			game_events.current_difficulty = 0
-			get_tree().change_scene("res://interface/WinGame.tscn")
+			get_tree().change_scene("res://rooms/end_room/EndMain.tscn")
 		else:
 			game_events.increase_difficulty()
 			game_events.next_level()

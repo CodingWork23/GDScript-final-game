@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/boss_bottom_right.png-cc2fbf4cac7876dd164379c9b1f24c27.stex"
+path="res://.import/boss_up.png-48d7b9525d06d44e67909fcf417b9946.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mobs/boss/boss_bottom_right.png"
-dest_files=[ "res://.import/boss_bottom_right.png-cc2fbf4cac7876dd164379c9b1f24c27.stex" ]
+source_file="res://mobs/boss/sprites/boss_up.png"
+dest_files=[ "res://.import/boss_up.png-48d7b9525d06d44e67909fcf417b9946.stex" ]
 
 [params]
 

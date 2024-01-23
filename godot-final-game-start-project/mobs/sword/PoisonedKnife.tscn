@@ -295,6 +295,8 @@ collision_layer = 0
 position = Vector2( 17.5, 0 )
 shape = SubResource( 10 )
 
+[node name="Timer" type="Timer" parent="Sprite/Hitbox"]
+
 [node name="Shadow" parent="." instance=ExtResource( 1 )]
 position = Vector2( -0.493829, 64 )
 

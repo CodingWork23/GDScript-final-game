@@ -12,6 +12,7 @@ func spawn() -> void:
 	if get_random_number() > spawn_chance or dropped_allready:
 		return
 	.spawn()
+	dropped_allready = false
 
 func get_random_number() -> float:
 	randomize()

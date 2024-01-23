@@ -14,7 +14,7 @@
 script = ExtResource( 1 )
 current_difficulty = 0
 level_amount = 6
-current_level = 1
+current_level = 2
 mob_list = {
 0: [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 7 ) ],
 1: [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 5 ) ],
@@ -26,4 +26,4 @@ max_waves = [ 1, 2, 3 ]
 mob_spawn_chance = [ 60.0, 75.0, 80.0 ]
 miniboss_spawn_chance = [ 0.0, 10.0, 20.0 ]
 pickup_spawn_chance = [ 30.0, 35.0, 40.0 ]
-extra_payment = 0
+extra_payment = 100

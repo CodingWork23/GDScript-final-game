@@ -220,7 +220,8 @@ tracks/0/keys = {
 }
 
 [node name="DoorHorizontal" type="StaticBody2D"]
-collision_layer = 0
+collision_layer = 32
+collision_mask = 0
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]

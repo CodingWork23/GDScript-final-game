@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface/ui_elements/bar_points/fire_bar_fill.png" type="Texture" id=1]
+[ext_resource path="res://interface/ui_elements/BossHealthBar.gd" type="Script" id=2]
+
+[node name="BossHealthBar" type="TextureProgress"]
+margin_right = 320.0
+margin_bottom = 40.0
+value = 10.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 1 )
+fill_mode = 6
+tint_under = Color( 1, 1, 1, 0.196078 )
+nine_patch_stretch = true
+script = ExtResource( 2 )

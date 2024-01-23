@@ -7,7 +7,7 @@ onready var _spawn_effect : Particles2D = $SpawnEffect
 # The damage this mob inflicts when it hits the player.
 export var damage := 1
 # How much damage the mob can take before dying.
-export var health := 2
+export var health := 2 setget set_health
 # How much points the mob gives when killed.
 export var points := 10
 # How far from the player this mob will orbit. The export hint in parentheses limits
@@ -129,10 +129,12 @@ func orbit_target() -> void:
 	var offset_from_target := direction.rotated(PI / 6.0) * orbit_distance
 	follow(_target.global_position + offset_from_target)
 
+func set_health(new_health: int) -> void:
+	health = clamp(new_health, 0, 999)
 
 # Called by bullets.
 func take_damage(amount: int) -> void:
-	health -= amount
+	set_health(health - amount)
 	if health <= 0:
 		_die()
 	else:

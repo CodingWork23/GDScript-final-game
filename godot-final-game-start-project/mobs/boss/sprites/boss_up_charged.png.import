@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/boss_bottom_charged.png-b947f9802ad9c34e5719985fa5036957.stex"
+path="res://.import/boss_up_charged.png-3950441f93724527def10176ff2ba45c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mobs/boss/boss_bottom_charged.png"
-dest_files=[ "res://.import/boss_bottom_charged.png-b947f9802ad9c34e5719985fa5036957.stex" ]
+source_file="res://mobs/boss/sprites/boss_up_charged.png"
+dest_files=[ "res://.import/boss_up_charged.png-3950441f93724527def10176ff2ba45c.stex" ]
 
 [params]
 

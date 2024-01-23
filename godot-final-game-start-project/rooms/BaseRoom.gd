@@ -88,7 +88,10 @@ func _ready() -> void:
 		spawn_loot_chests()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	_process_counting()
+
+func _process_counting() -> void:
 	if waves_finished:
 		return
 	var count := 0
