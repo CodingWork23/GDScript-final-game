@@ -238,7 +238,7 @@ func _on_DetectionZone_body_entered(body: Robot) -> void:
 		return
 	_toggle_the_mobs(true)
 	close_doors()
-	if not Events.is_connected("died_in_baseroom", self, "_counting_mobs"):
-		Events.connect("died_in_baseroom", self, "_counting_mobs")
+	#if not Events.is_connected("died_in_baseroom", self, "_counting_mobs"):
+	#	Events.connect("died_in_baseroom", self, "_counting_mobs")
 	_detection_zone.disconnect("body_entered", self, "_on_DetectionZone_body_entered")
 	

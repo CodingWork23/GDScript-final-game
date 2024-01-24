@@ -24,11 +24,13 @@ export(int, 0, 1) var colliding_with_walls := 1
 
 # Maximum random angle applied to the shot bullets in degrees. Controls the
 # cannon's precision.
-export(float, 0.0, 50.0, 1.0) var random_angle_degrees := 10.0
+export(float, 0.0, 90.0, 1.0) var random_angle_degrees := 10.0
 # Maximum distance a bullet can travel before it disappears.
 export(float, 100.0, 2000.0, 1.0) var max_range := 2000.0
 # The speed of the shot bullets.
 export(float, 50.0, 3000.0, 1.0) var bullet_speed := 400.0
+
+export(int, 0, 20) var bullet_damage := 0
 
 export var bullet_count := 1
 
@@ -45,6 +47,8 @@ func shoot_at_target(target: Node2D) -> void:
 	bullet.max_range = max_range
 	bullet.speed = bullet_speed
 	bullet.collision_mask = collision_mask + (colliding_with_walls * 16)
+	if bullet_damage:
+		bullet.damage = bullet_damage
 	for child in bullet.get_children():
 		if child is Area2D:
 			child.collision_mask = collision_mask

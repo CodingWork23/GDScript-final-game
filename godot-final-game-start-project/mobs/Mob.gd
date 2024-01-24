@@ -202,7 +202,7 @@ func _on_DieSound_finished() -> void:
 # show the _sprite_alert node.
 func _on_DetectionArea_body_entered(body: Robot) -> void:
 	_target = body
-	_sprite_alert.visible = true
+	#_sprite_alert.visible = true
 
 
 # When the player exists the detection area, we set _target to null and hide the
