@@ -216,10 +216,10 @@ func take_damage(amount: int, start_timer: bool = true) -> void:
 func start_ghost_effect() -> void:
 	_ghost_timer.start()
 	_animation_emblem.play("ghost")
-	collision_layer = 0
+	collision_layer = 128
 
 func stop_ghost_effect() -> void:
-	collision_layer = 1
+	collision_layer = 129
 
 # Makes the player interact with nothing and stop receiving inputs
 func _disable() -> void:
@@ -347,7 +347,7 @@ func mace_emblem() -> void:
 	_emblem_cooldown_timer.start()
 	Events.emit_signal("set_emblem_cooldown", cooldown)
 	
-	var spinning_cannon : SpinningCannon = preload("res://spells/SpinningCannon.tscn").instance()
+	var spinning_cannon : SpinningCannon = preload("res://spells/spell_attacks/SpinningCannon.tscn").instance()
 	spinning_cannon._target = spinning_cannon.Target.MOB
 	spinning_cannon.bullet_scene = preload("res://bullets/fire_spike/FireSpike.tscn")
 	spinning_cannon.max_range = 500.0

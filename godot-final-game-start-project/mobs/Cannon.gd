@@ -40,6 +40,8 @@ onready var _position_2d := $Position2D
 
 # Shoots the bullet in direction of the provided target
 func shoot_at_target(target: Node2D) -> void:
+	if not target:
+		return
 	look_at(target.global_position)
 	var bullet: Bullet = BulletScene.instance()
 	get_tree().root.add_child(bullet)

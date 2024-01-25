@@ -119,7 +119,7 @@ game_events = null
 spawn_chance = 20.0
 
 [node name="ForgotenRobot" parent="Mobs" index="17" instance=ExtResource( 12 )]
-position = Vector2( 1920, 1216 )
+position = Vector2( 1920, 1536 )
 
 [node name="SpawnerPickups" parent="Items" index="0" instance=ExtResource( 9 )]
 position = Vector2( 576, 1792 )
@@ -152,7 +152,7 @@ game_events = null
 spawn_chance = 20.0
 
 [node name="SpawnerRobot" parent="." index="8"]
-position = Vector2( 3776, 4992 )
+position = Vector2( 3712, 4992 )
 
 [node name="SpawnerTeleporter" parent="." index="9"]
 position = Vector2( 1920, -896 )
@@ -182,7 +182,7 @@ position = Vector2( 3840, 1344 )
 position = Vector2( 3840, 1472 )
 
 [node name="CollisionShape2D" parent="DetectionZone" index="0"]
-position = Vector2( 1920, 1504 )
+position = Vector2( 1920, 1472 )
 
 [node name="TraderGuy" parent="." index="15" instance=ExtResource( 10 )]
 position = Vector2( 2560, 4480 )

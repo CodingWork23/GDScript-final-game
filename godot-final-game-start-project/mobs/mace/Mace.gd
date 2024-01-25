@@ -7,7 +7,7 @@ func _on_BeforeAttackTimer_timeout() -> void:
 	_animation_player.play("spin")
 	_animation_player.queue("hover")
 	
-	var spinning_cannon : SpinningCannon = preload("res://spells/SpinningCannon.tscn").instance()
+	var spinning_cannon := preload("res://spells/spell_attacks/SpinningCannon.tscn").instance()
 	spinning_cannon._target = spinning_cannon.Target.ROBOT
 	spinning_cannon.bullet_per_seconds = 5.0
 	spinning_cannon.max_bullet_speed = 500.0
