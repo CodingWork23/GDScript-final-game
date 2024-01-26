@@ -5,9 +5,13 @@ onready var shoot_sound := $ShootSound
 
 var bullet_released := false
 
+var target : Robot = null
+
 func _move(delta: float) -> void:
 	if bullet_released:
 		._move(delta)
+	elif target:
+		look_at(target.global_position)
 
 func releasing_bullet() -> void:
 	bullet_released = true

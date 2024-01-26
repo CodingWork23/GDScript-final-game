@@ -5,6 +5,8 @@ onready var flame_blow_cannon := $FlameBlow
 onready var flame_blow_timer := $FlameBlowTimer
 onready var flame_blast_cannon := $FlameBlast
 onready var flame_blast_timer := $FlameBlastTimer
+onready var star_dart_cannon := $StarDart
+onready var star_dart_timer := $StarDartTimer
 
 onready var attack_animation := $AttackAnimation
 onready var flame_sound := $FlameSound
@@ -37,10 +39,11 @@ func _physics_process(delta: float) -> void:
 		flame_blow()
 	else:
 		flame_blast()
+		star_darts()
 	
 
 func swing_sword() -> void:
-	if not is_ready_to_attack() or not great_sword_timer.is_stopped():
+	if not is_ready_to_attack() or not great_sword_timer.is_stopped() or attack_in_process:
 		return
 	
 	var great_sword := preload("res://spells/spell_attacks/SwordAttack.tscn").instance()
@@ -52,7 +55,7 @@ func swing_sword() -> void:
 	
 	yield(great_sword, "tree_exited")
 	
-	_sprite_alert.hide()
+	_sprite_alert.visible = false
 	speed = normal_speed
 	attack_in_process = false
 	
@@ -61,9 +64,9 @@ func swing_sword() -> void:
 	
 
 func flame_blow() -> void:
-	if not is_ready_to_attack() or not flame_blow_timer.is_stopped():
+	if not is_ready_to_attack() or not flame_blow_timer.is_stopped() or attack_in_process:
 		return
-	_sprite_alert.show()
+	_sprite_alert.visible = true
 	is_attacking = true
 	attack_animation.play("flame_blow")
 	
@@ -73,16 +76,16 @@ func flame_blow() -> void:
 	for _i in range(flame_blow_cannon.bullet_count):
 		flame_blow_cannon.shoot_at_target(_target)
 	attack_animation.play("RESET")
-	_sprite_alert.hide()
+	_sprite_alert.visible = false
 	is_attacking = false
 	
 	_cooldown_timer.start()
 	flame_blow_timer.start()
 	
 func flame_blast() -> void:
-	if not is_ready_to_attack() or not flame_blast_timer.is_stopped():
+	if not is_ready_to_attack() or not flame_blast_timer.is_stopped() or attack_in_process:
 		return
-	_sprite_alert.show()
+	_sprite_alert.visible = true
 	speed -= slow_speed
 	attack_animation.play("flame_blow")
 	attack_in_process = true
@@ -95,12 +98,47 @@ func flame_blast() -> void:
 		yield(get_tree().create_timer(0.1), "timeout")
 	attack_animation.play("RESET")
 	speed = normal_speed
-	_sprite_alert.hide()
+	_sprite_alert.visible = false
 	attack_in_process = false
 	
 	_cooldown_timer.start()
 	flame_blast_timer.start()
 
+func star_darts() -> void:
+	if not is_ready_to_attack() or not star_dart_timer.is_stopped() or attack_in_process:
+		return
+	
+	is_attacking = true
+	attack_animation.play("light_charge")
+	_sprite_alert.visible = true
+	
+	yield(attack_animation, "animation_finished")
+	
+	_sprite_alert.visible = false
+	attack_animation.play("RESET")
+	is_attacking = false
+	_cooldown_timer.start()
+	star_dart_timer.start()
+	
+	var position_range := 250.0
+	for _i in range(12):
+		var bullet : Bullet = preload("res://bullets/light_dart/LightDart.tscn").instance()
+		randomize()
+		var random_position := Vector2(
+			rand_range(-position_range, position_range), 
+			rand_range(-position_range, position_range)
+		)
+		if _target:
+			bullet.target = _target
+		#bullet.position = random_position
+		bullet.global_position = global_position + random_position
+		bullet.collision_mask = 1
+		bullet.max_range = 2000.0
+		bullet.speed = 1600.0
+		get_tree().current_scene.add_child(bullet)
+		
+		
+		yield(get_tree().create_timer(0.5), "timeout")
 
 func set_health(new_health: int) -> void:
 	.set_health(new_health)

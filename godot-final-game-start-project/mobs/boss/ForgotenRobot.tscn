@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://mobs/Mob.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mobs/boss/sprites/boss_bottom_charged.png" type="Texture" id=2]
@@ -57,7 +57,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.231373, 0.231373, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.305882, 0.305882, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:modulate")
@@ -69,7 +69,35 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.231373, 0.231373, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.305882, 0.305882, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "light_charge"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 3.36358, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.984314, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Alert:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 3.36358, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.984314, 0, 1 ) ]
 }
 
 [node name="ForgotenRobot" instance=ExtResource( 1 )]
@@ -95,7 +123,6 @@ texture = ExtResource( 3 )
 script = ExtResource( 5 )
 
 [node name="Alert" parent="Sprite" index="0"]
-visible = false
 texture = ExtResource( 2 )
 
 [node name="SpawnEffect" parent="." index="11"]
@@ -108,6 +135,7 @@ cast_to = Vector2( 2358, 0 )
 [node name="AttackAnimation" type="AnimationPlayer" parent="." index="13"]
 anims/RESET = SubResource( 3 )
 anims/flame_blow = SubResource( 4 )
+anims/light_charge = SubResource( 5 )
 
 [node name="FlameSound" type="AudioStreamPlayer2D" parent="." index="14"]
 stream = ExtResource( 8 )
@@ -136,4 +164,10 @@ bullet_damage = 1
 
 [node name="FlameBlastTimer" type="Timer" parent="." index="19"]
 wait_time = 10.0
+one_shot = true
+
+[node name="StarDart" parent="." index="20" instance=ExtResource( 6 )]
+
+[node name="StarDartTimer" type="Timer" parent="." index="21"]
+wait_time = 15.0
 one_shot = true

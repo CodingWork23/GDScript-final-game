@@ -39,9 +39,11 @@ func _physics_process(delta: float) -> void:
 	var direction_key := direction.round()
 	direction_key.x = abs(direction_key.x)
 	if direction_key in DIRECTION_TO_FRAME:
-		texture = SPRITE_SHEET[DIRECTION_TO_FRAME[direction_key]]
-		sprite_alert.texture = SPRITE_SHEET[DIRECTION_TO_FRAME[direction_key]]
+		var sprite_sheet_index : int = DIRECTION_TO_FRAME[direction_key]
+		texture = SPRITE_SHEET[sprite_sheet_index]
+		sprite_alert.texture = SPRITE_SHEET_CHARGE[sprite_sheet_index]
 		flip_h = sign(direction.x) == -1
+		sprite_alert.flip_h = sign(direction.x) == -1
 	
 	# Makes the character lean towards its move direction.
 	rotation = lerp(rotation, direction.x * MAX_LEANING_ANGLE, 20.0 * delta)

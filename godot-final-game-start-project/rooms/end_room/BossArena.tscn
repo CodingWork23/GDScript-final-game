@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://pickups/health/pickup_health/PickupHealth.tscn" type="PackedScene" id=1]
 [ext_resource path="res://pickups/health/pickup_regeneration/PickupRegeneration.tscn" type="PackedScene" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://rooms/trader/TraderGuy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://rooms/end_room/BossArena.gd" type="Script" id=11]
 [ext_resource path="res://mobs/boss/ForgotenRobot.tscn" type="PackedScene" id=12]
+[ext_resource path="res://rooms/spawners/SpawnerEmblem.tscn" type="PackedScene" id=13]
+[ext_resource path="res://rooms/doors/DoorVertical.tscn" type="PackedScene" id=14]
+[ext_resource path="res://rooms/doors/DoorHorizontal.tscn" type="PackedScene" id=15]
 
 [node name="BossArena" instance=ExtResource( 6 )]
 script = ExtResource( 11 )
@@ -152,7 +155,7 @@ game_events = null
 spawn_chance = 20.0
 
 [node name="SpawnerRobot" parent="." index="8"]
-position = Vector2( 3712, 4992 )
+position = Vector2( 3712, 5056 )
 
 [node name="SpawnerTeleporter" parent="." index="9"]
 position = Vector2( 1920, -896 )
@@ -184,7 +187,57 @@ position = Vector2( 3840, 1472 )
 [node name="CollisionShape2D" parent="DetectionZone" index="0"]
 position = Vector2( 1920, 1472 )
 
-[node name="TraderGuy" parent="." index="15" instance=ExtResource( 10 )]
+[node name="IsolatedDoors" type="YSort" parent="." index="15"]
+
+[node name="Door1" type="YSort" parent="IsolatedDoors" index="0"]
+
+[node name="DoorVertical" parent="IsolatedDoors/Door1" index="0" instance=ExtResource( 14 )]
+position = Vector2( 1280, 2304 )
+
+[node name="DoorVertical2" parent="IsolatedDoors/Door1" index="1" instance=ExtResource( 14 )]
+position = Vector2( 1280, 2432 )
+
+[node name="Door2" type="YSort" parent="IsolatedDoors" index="1"]
+
+[node name="DoorHorizontal" parent="IsolatedDoors/Door2" index="0" instance=ExtResource( 15 )]
+position = Vector2( 1856, 896 )
+
+[node name="DoorHorizontal2" parent="IsolatedDoors/Door2" index="1" instance=ExtResource( 15 )]
+position = Vector2( 1984, 896 )
+
+[node name="Door3" type="YSort" parent="IsolatedDoors" index="2"]
+
+[node name="DoorVertical" parent="IsolatedDoors/Door3" index="0" instance=ExtResource( 14 )]
+position = Vector2( 2816, 1408 )
+
+[node name="DoorVertical2" parent="IsolatedDoors/Door3" index="1" instance=ExtResource( 14 )]
+position = Vector2( 2816, 1536 )
+
+[node name="Door4" type="YSort" parent="IsolatedDoors" index="3"]
+
+[node name="DoorHorizontal" parent="IsolatedDoors/Door4" index="0" instance=ExtResource( 15 )]
+position = Vector2( 576, 1536 )
+
+[node name="DoorHorizontal2" parent="IsolatedDoors/Door4" index="1" instance=ExtResource( 15 )]
+position = Vector2( 704, 1536 )
+
+[node name="Door5" type="YSort" parent="IsolatedDoors" index="4"]
+
+[node name="DoorHorizontal" parent="IsolatedDoors/Door5" index="0" instance=ExtResource( 15 )]
+position = Vector2( 2880, 832 )
+
+[node name="DoorVertical" parent="IsolatedDoors/Door5" index="1" instance=ExtResource( 14 )]
+position = Vector2( 3072, 512 )
+
+[node name="Door6" type="YSort" parent="IsolatedDoors" index="5"]
+
+[node name="DoorVertical" parent="IsolatedDoors/Door6" index="0" instance=ExtResource( 14 )]
+position = Vector2( 2688, 2432 )
+
+[node name="DoorVertical2" parent="IsolatedDoors/Door6" index="1" instance=ExtResource( 14 )]
+position = Vector2( 2688, 2560 )
+
+[node name="TraderGuy" parent="." index="16" instance=ExtResource( 10 )]
 position = Vector2( 2560, 4480 )
 is_active = true
 
@@ -200,11 +253,14 @@ position = Vector2( 64, 128 )
 [node name="TradeProduct4" parent="TraderGuy" index="7" instance=ExtResource( 8 )]
 position = Vector2( 192, 64 )
 
-[node name="LargeLootChest" parent="." index="16" instance=ExtResource( 7 )]
+[node name="LargeLootChest" parent="." index="17" instance=ExtResource( 7 )]
 position = Vector2( 3648, 4608 )
 
-[node name="LargeLootChest2" parent="." index="17" instance=ExtResource( 7 )]
+[node name="LargeLootChest2" parent="." index="18" instance=ExtResource( 7 )]
 position = Vector2( 4032, 4608 )
 
-[node name="LootChest" parent="." index="18" instance=ExtResource( 5 )]
+[node name="LootChest" parent="." index="19" instance=ExtResource( 5 )]
 position = Vector2( 3840, 4608 )
+
+[node name="SpawnerEmblem" parent="." index="20" instance=ExtResource( 13 )]
+position = Vector2( 1792, 4992 )
