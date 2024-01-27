@@ -356,6 +356,7 @@ script = ExtResource( 4 )
 speed = 400.0
 damage = 5
 max_range = 400.0
+explode_damage = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 0.459456 )

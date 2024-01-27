@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://props/sky/BackgroundBlueSky.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface/OnScreenUI.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://rooms/isolatedRooms/RoomH.tscn" type="PackedScene" id=14]
 [ext_resource path="res://rooms/isolatedRooms/TraderA.tscn" type="PackedScene" id=15]
 [ext_resource path="res://rooms/isolatedRooms/EmblemA.tscn" type="PackedScene" id=16]
+[ext_resource path="res://interface/ui_elements/CurrentLevel.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -219,6 +220,12 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1920.0
 margin_bottom = 1080.0
+
+[node name="CurrentLevel" parent="CanvasLayer" instance=ExtResource( 17 )]
+margin_left = 1622.0
+margin_top = 980.0
+margin_right = 1867.0
+margin_bottom = 1036.0
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0

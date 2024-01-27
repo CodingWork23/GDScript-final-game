@@ -3,11 +3,13 @@ extends Mob
 onready var great_sword_timer := $GreatSwordTimer
 onready var flame_blow_cannon := $FlameBlow
 onready var flame_blow_timer := $FlameBlowTimer
+onready var sprint_dash_timer := $SprintDashTimer
 onready var flame_blast_cannon := $FlameBlast
 onready var flame_blast_timer := $FlameBlastTimer
 onready var star_dart_cannon := $StarDart
 onready var star_dart_timer := $StarDartTimer
 
+onready var smoke_particles := $SmokeParticles
 onready var attack_animation := $AttackAnimation
 onready var flame_sound := $FlameSound
 
@@ -39,6 +41,7 @@ func _physics_process(delta: float) -> void:
 		flame_blow()
 	else:
 		flame_blast()
+		sprint_dash()
 		star_darts()
 	
 
@@ -81,7 +84,29 @@ func flame_blow() -> void:
 	
 	_cooldown_timer.start()
 	flame_blow_timer.start()
+
+func sprint_dash() -> void:
+	if not is_ready_to_attack() or not sprint_dash_timer.is_stopped() or attack_in_process:
+		return
+	_sprite_alert.visible = true
+	is_attacking = true
+	attack_in_process = true
 	
+	yield(get_tree().create_timer(1), "timeout")
+	
+	sprint_dash_timer.start()
+	_cooldown_timer.start(1)
+	_sprite_alert.visible = false
+	is_attacking = false
+	attack_in_process = false
+	speed = 600.0
+	smoke_particles.emitting = true
+	
+	yield(get_tree().create_timer(1), "timeout")
+	
+	speed = normal_speed
+	smoke_particles.emitting = false
+
 func flame_blast() -> void:
 	if not is_ready_to_attack() or not flame_blast_timer.is_stopped() or attack_in_process:
 		return

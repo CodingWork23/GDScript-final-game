@@ -6,7 +6,7 @@
 [ext_resource path="res://rooms/teleporter/teleporter_base.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 50.0
+radius = 22.2036
 
 [sub_resource type="Animation" id=3]
 length = 0.001

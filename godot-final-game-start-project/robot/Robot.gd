@@ -142,6 +142,8 @@ func healing(heal: int) -> void:
 
 func set_max_heal_kit(new_value: int) -> void:
 	max_heal_kit = new_value
+	if robot_stats:
+		robot_stats.max_heal_kit = max_heal_kit
 	Events.emit_signal("player_max_heal_kit_changed", max_heal_kit)
 
 func set_heal_kit(new_heal_kit: int) -> void:
@@ -149,6 +151,9 @@ func set_heal_kit(new_heal_kit: int) -> void:
 	if robot_stats:
 		robot_stats.heal_kit = heal_kit
 	Events.emit_signal("player_heal_kit_changed", heal_kit)
+
+func add_kit_slot() -> void:
+	set_max_heal_kit(max_heal_kit + 1)
 
 func add_heal_kit() -> void:
 	set_heal_kit(heal_kit + 1)
@@ -198,7 +203,7 @@ func take_damage(amount: int, start_timer: bool = true) -> void:
 		start_ghost_effect()
 	
 	set_health(health - amount)
-	healing(amount)
+	#healing(amount)
 	# If the health is lower or equal to zero, we're dead, so we disable
 	# movement.
 	if health <= 0:
@@ -335,7 +340,8 @@ func hammer_emblem() -> void:
 	var explosion : Area2D = Explosion.instance()
 	explosion.collision_mask -= 1
 	explosion.global_position = global_position
-	explosion.damage = 4
+	explosion.damage = 10
+	explosion.freeze_effect = true
 	
 	get_tree().root.add_child(explosion)
 	
@@ -352,7 +358,8 @@ func mace_emblem() -> void:
 	spinning_cannon.bullet_scene = preload("res://bullets/fire_spike/FireSpike.tscn")
 	spinning_cannon.max_range = 500.0
 	spinning_cannon.max_bullet_speed = 600.0
-	spinning_cannon.bullet_per_seconds = 10
+	spinning_cannon.bullet_per_seconds = 15
+	spinning_cannon.spin_speed = 3.0
 	
 	add_child(spinning_cannon)
 

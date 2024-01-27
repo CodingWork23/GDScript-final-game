@@ -19,8 +19,8 @@ extents = Vector2( 58, 49 )
 collision_layer = 20
 script = ExtResource( 2 )
 chest_inventory = [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 5 ) ]
-max_item_count = 1
 last_gems = [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ) ]
+max_item_count = 1
 health = 10
 
 [node name="ChestEmpty" parent="." index="0"]

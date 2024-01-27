@@ -22,6 +22,8 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not robot:
+		return
 	if event.is_action_pressed("interact") and robot.gold_gems >= price:
 		robot.set_current_emblem(emblem_type)
 		robot.buy_product(price)

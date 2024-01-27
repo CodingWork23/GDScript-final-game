@@ -87,9 +87,9 @@ rect_pivot_offset = Vector2( 107.972, 45.984 )
 alignment = 1
 
 [node name="Label" type="Label" parent="PriceHint"]
-margin_top = 14.0
+margin_top = 16.0
 margin_right = 182.0
-margin_bottom = 74.0
+margin_bottom = 72.0
 size_flags_horizontal = 7
 theme = ExtResource( 3 )
 text = "0000"

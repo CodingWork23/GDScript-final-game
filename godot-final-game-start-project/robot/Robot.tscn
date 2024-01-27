@@ -270,13 +270,13 @@ radius = 35.0571
 offsets = PoolRealArray( 0, 0.083682, 0.171548, 0.544118, 0.872549 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0, 0.780392, 0.831373, 0.882353, 1, 0.572549, 0.560784, 0.721569, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=11]
+[sub_resource type="GradientTexture" id=20]
 gradient = SubResource( 14 )
 
 [sub_resource type="Curve" id=15]
 _data = [ Vector2( 0, 0.513245 ), 0.0, 0.0, 0, 0, Vector2( 0.237734, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.241722 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=13]
+[sub_resource type="CurveTexture" id=21]
 curve = SubResource( 15 )
 
 [sub_resource type="ParticlesMaterial" id=16]
@@ -291,8 +291,8 @@ damping = 150.0
 damping_random = 0.5
 scale = 0.5
 scale_random = 0.5
-scale_curve = SubResource( 13 )
-color_ramp = SubResource( 11 )
+scale_curve = SubResource( 21 )
+color_ramp = SubResource( 20 )
 
 [sub_resource type="Animation" id=17]
 length = 0.001

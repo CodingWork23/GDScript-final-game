@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interface/theme/title_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface/ui_elements/CurrentLevel.gd" type="Script" id=2]
+[ext_resource path="res://game_events.tres" type="Resource" id=3]
+
+[node name="CurrentLevel" type="Label"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "Level: 1 / 6"
+script = ExtResource( 2 )
+game_events = ExtResource( 3 )

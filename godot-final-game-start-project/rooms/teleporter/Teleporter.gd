@@ -41,7 +41,6 @@ func _on_body_entered(body: Node) -> void:
 	add_child(teleport_fx)
 	# We set the FX at the location of the body. We just offset it a little bit
 	# down because it looks better this way
-	teleport_fx.global_position = body.global_position + Vector2(0, 4)
 	
 	# If the body has no teleport() function, nothing happens.
 	if body.has_method("teleport"):

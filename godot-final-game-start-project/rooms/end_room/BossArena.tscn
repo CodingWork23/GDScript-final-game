@@ -155,7 +155,7 @@ game_events = null
 spawn_chance = 20.0
 
 [node name="SpawnerRobot" parent="." index="8"]
-position = Vector2( 3712, 5056 )
+position = Vector2( 3712, 4992 )
 
 [node name="SpawnerTeleporter" parent="." index="9"]
 position = Vector2( 1920, -896 )

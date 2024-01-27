@@ -11,6 +11,7 @@ export var room_size := Vector2(13, 13) * 128
 onready var _music_player := $MusicPlayer
 onready var _pause_screen := $CanvasLayer/PauseScreen
 onready var _ui_screen := $CanvasLayer/OnScreenUI
+onready var _current_level_label := $CanvasLayer/CurrentLevel
 onready var _animation_player := $AnimationPlayer
 onready var _interface_effect := $InterfaceEffect
 
@@ -88,9 +89,12 @@ func _on_AnimationPlayer_animation_finished(animation: String) -> void:
 	
 	if animation == "next_game":
 		if game_events.current_level == game_events.level_amount:
+			game_events.next_level()
+			get_tree().change_scene("res://rooms/end_room/EndMain.tscn")
+		elif game_events.current_level > game_events.level_amount:
 			game_events.current_level = 1
 			game_events.current_difficulty = 0
-			get_tree().change_scene("res://rooms/end_room/EndMain.tscn")
+			get_tree().change_scene("res://interface/WinGame.tscn")
 		else:
 			game_events.increase_difficulty()
 			game_events.next_level()
@@ -98,6 +102,7 @@ func _on_AnimationPlayer_animation_finished(animation: String) -> void:
 
 func toggle_the_game(toggle: bool) -> void:
 	_ui_screen.visible = toggle
+	_current_level_label.visible = toggle
 	Events.emit_signal("set_current_camera", toggle)
 	
 

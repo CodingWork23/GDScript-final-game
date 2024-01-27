@@ -1,6 +1,7 @@
 extends BaseRoom
 
 onready var isolated_doors := $IsolatedDoors
+onready var emblem_spawner := $SpawnerEmblem
 
 onready var door_states := {
 	1 : [
@@ -24,6 +25,7 @@ var arena_state := 0 setget set_arena_state
 
 func _ready() -> void:
 	_toggle_the_mobs(false)
+	emblem_spawner.spawn()
 	Events.connect("next_arena_state", self, "_next_arena_state")
 	Events.connect("boss_died", self, "set_arena_state", [0])
 	Events.connect("boss_died", self, "kill_mobs")

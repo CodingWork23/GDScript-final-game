@@ -41,7 +41,7 @@ func increase_difficulty() -> void:
 		set_current_difficulty(current_difficulty + 1)
 
 func set_current_level(new_level: int) -> void:
-	current_level = clamp(new_level, 1, level_amount)
+	current_level = clamp(new_level, 1, level_amount + 1)
 	save()
 
 func next_level() -> void:
