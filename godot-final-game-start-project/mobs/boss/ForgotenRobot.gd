@@ -143,13 +143,13 @@ func star_darts() -> void:
 func set_health(new_health: int) -> void:
 	.set_health(new_health)
 	if health < max_health * 0.75 and first_phase:
-		Events.emit_signal("spawn_mobs")
+		Events.emit_signal("next_arena_state")
 		first_phase = false
 	if health < max_health * 0.50 and second_phase:
-		Events.emit_signal("spawn_mobs")
+		Events.emit_signal("next_arena_state")
 		second_phase = false
 	if health < max_health * 0.25 and third_phase:
-		Events.emit_signal("spawn_mobs")
+		Events.emit_signal("next_arena_state")
 		third_phase = false
 	
 	Events.emit_signal("boss_health_changed", health)
@@ -157,6 +157,7 @@ func set_health(new_health: int) -> void:
 func _on_DieSound_finished() -> void:
 	queue_free()
 	Events.emit_signal("visible_bar", false)
+	Events.emit_signal("boss_died")
 
 func _on_DetectionArea_body_entered(body: Robot) -> void:
 	._on_DetectionArea_body_entered(body)

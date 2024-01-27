@@ -19,3 +19,7 @@ func _set_mobs_physics(status: bool) -> void:
 			mob.collision_layer = 0
 		else:
 			mob.collision_layer = mob.COLLISION_LAYER
+
+func _die() -> void:
+	for mob in get_children():
+		mob._die()

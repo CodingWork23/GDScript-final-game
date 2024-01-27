@@ -197,6 +197,13 @@ func _toggle_the_mobs(toggle: bool) -> void:
 			else:
 				mob.collision_layer = mob.COLLISION_LAYER
 
+func kill_mobs() -> void:
+	for mob in _mobs_spawners.get_children():
+		if mob is GroupNode:
+			mob._die()
+		elif mob is Mob or mob is Bomb or mob is Sword:
+			mob._die()
+
 func disable_mob_spawning() -> void:
 	for spawner in _mobs_spawners.get_children():
 		if spawner is Spawner:

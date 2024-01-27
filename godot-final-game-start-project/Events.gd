@@ -18,7 +18,8 @@ signal boss_health_changed(new_health)
 signal visible_bar(status)
 
 # EndBoss Arena
-signal spawn_mobs()
+signal next_arena_state()
+signal boss_died()
 
 # Player
 signal set_current_camera(toggle_current)

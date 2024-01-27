@@ -198,7 +198,7 @@ func take_damage(amount: int, start_timer: bool = true) -> void:
 		start_ghost_effect()
 	
 	set_health(health - amount)
-	#healing(amount)
+	healing(amount)
 	# If the health is lower or equal to zero, we're dead, so we disable
 	# movement.
 	if health <= 0:
@@ -352,6 +352,7 @@ func mace_emblem() -> void:
 	spinning_cannon.bullet_scene = preload("res://bullets/fire_spike/FireSpike.tscn")
 	spinning_cannon.max_range = 500.0
 	spinning_cannon.max_bullet_speed = 600.0
+	spinning_cannon.bullet_per_seconds = 10
 	
 	add_child(spinning_cannon)
 

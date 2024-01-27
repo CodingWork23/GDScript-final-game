@@ -12,3 +12,7 @@ func _close() -> void:
 func _open() -> void:
 	animation_player.play("open")
 	animation_player.queue("green_beam_blink")
+
+func _reopen() -> void:
+	animation_player.play("reopen")
+	animation_player.queue("RESET")
