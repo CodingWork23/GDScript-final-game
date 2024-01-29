@@ -17,27 +17,29 @@ enum Type { NONE, FLAME, ICE, LIGHTNING }
 # If you create a new spell, or change the location of a spell, make sure to
 # update this dictionary
 const scenes_types := {
-	preload("res://spells/fire_basic/SpellBasicFire.tscn"): Type.FLAME,
-	preload("res://spells/fire_spike/FireSpikeSpell.tscn"): Type.FLAME,
-	preload("res://spells/fire_spray/FireSpraySpell.tscn"): Type.FLAME,
-	preload("res://spells/ice_punch/IceBasicSpell.tscn"): Type.ICE,
-	preload("res://spells/ice_punch/SuperIceSpell.tscn"): Type.ICE,
-	preload("res://spells/ice_cannon/IceCannon.tscn"): Type.ICE,
-	preload("res://spells/lightning_shot/LightningSpell.tscn"): Type.LIGHTNING,
-	preload("res://spells/loaded_shoot/LoadedShoot.tscn"): Type.LIGHTNING,
-	preload("res://spells/light_dart_shooter/DartShooter.tscn"): Type.LIGHTNING
+	preload("res://spells/fire_spell/fire_basic/SpellBasicFire.tscn"): Type.FLAME,
+	preload("res://spells/fire_spell/fire_spike/FireSpikeSpell.tscn"): Type.FLAME,
+	preload("res://spells/fire_spell/fire_spray/FireSpraySpell.tscn"): Type.FLAME,
+	preload("res://spells/ice_spell/ice_punch/IceBasicSpell.tscn"): Type.ICE,
+	preload("res://spells/ice_spell/super_ice_punch/SuperIceSpell.tscn"): Type.ICE,
+	preload("res://spells/ice_spell/ice_cannon/IceCannon.tscn"): Type.ICE,
+	preload("res://spells/lightning_spell/lightning_shot/LightningSpell.tscn"): Type.LIGHTNING,
+	preload("res://spells/lightning_spell/loaded_shoot/LoadedShoot.tscn"): Type.LIGHTNING,
+	preload("res://spells/lightning_spell/light_dart_shooter/DartShooter.tscn"): Type.LIGHTNING,
+	preload("res://spells/lightning_spell/zeus_light_bow/ZeusLightBow.tscn"): Type.LIGHTNING
 }
 
 onready var particles := {
-	preload("res://spells/fire_basic/SpellBasicFire.tscn"): $FlameSection/Flame/PariclesSparkle,
-	preload("res://spells/fire_spray/FireSpraySpell.tscn"): $FlameSection/Flame/PariclesSparkle2,
-	preload("res://spells/fire_spike/FireSpikeSpell.tscn"): $FlameSection/Flame/Particles2D,
-	preload("res://spells/ice_punch/IceBasicSpell.tscn"): $IceSection/Ice/PariclesSparkle,
-	preload("res://spells/ice_punch/SuperIceSpell.tscn"): $IceSection/Ice/PariclesSparkle2,
-	preload("res://spells/ice_cannon/IceCannon.tscn"): $IceSection/Ice/Particles2D,
-	preload("res://spells/lightning_shot/LightningSpell.tscn"): $LightSection/Lightning/PariclesSparkle,
-	preload("res://spells/loaded_shoot/LoadedShoot.tscn"): $LightSection/Lightning/PariclesSparkle2,
-	preload("res://spells/light_dart_shooter/DartShooter.tscn"): $LightSection/Lightning/Particles2D
+	preload("res://spells/fire_spell/fire_basic/SpellBasicFire.tscn"): $FlameSection/Flame/PariclesSparkle,
+	preload("res://spells/fire_spell/fire_spike/FireSpikeSpell.tscn"): $FlameSection/Flame/PariclesSparkle2,
+	preload("res://spells/fire_spell/fire_spray/FireSpraySpell.tscn"): $FlameSection/Flame/Particles2D,
+	preload("res://spells/ice_spell/ice_punch/IceBasicSpell.tscn"): $IceSection/Ice/PariclesSparkle,
+	preload("res://spells/ice_spell/super_ice_punch/SuperIceSpell.tscn"): $IceSection/Ice/PariclesSparkle2,
+	preload("res://spells/ice_spell/ice_cannon/IceCannon.tscn"): $IceSection/Ice/Particles2D,
+	preload("res://spells/lightning_spell/lightning_shot/LightningSpell.tscn"): $LightSection/Lightning/PariclesSparkle,
+	preload("res://spells/lightning_spell/loaded_shoot/LoadedShoot.tscn"): $LightSection/Lightning/PariclesSparkle2,
+	preload("res://spells/lightning_spell/light_dart_shooter/DartShooter.tscn"): $LightSection/Lightning/Particles2D,
+	preload("res://spells/lightning_spell/zeus_light_bow/ZeusLightBow.tscn"): $LightSection/Lightning/Particles2D,
 }
 
 # Export the type in the interface for easy visualisation

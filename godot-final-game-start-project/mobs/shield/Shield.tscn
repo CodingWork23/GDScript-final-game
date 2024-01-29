@@ -5,8 +5,8 @@
 [ext_resource path="res://mobs/shield/shield_inactive.png" type="Texture" id=3]
 [ext_resource path="res://mobs/Cannon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://mobs/shield/Shield.gd" type="Script" id=5]
-[ext_resource path="res://bullets/ice_fist/Icefist.tscn" type="PackedScene" id=6]
-[ext_resource path="res://spells/ice_punch/shoot_ice.wav" type="AudioStream" id=7]
+[ext_resource path="res://bullets/ice_bullet/ice_fist/Icefist.tscn" type="PackedScene" id=6]
+[ext_resource path="res://spells/ice_spell/ice_punch/shoot_ice.wav" type="AudioStream" id=7]
 [ext_resource path="res://pickups/gems/gold/SmallGoldgem.tscn" type="PackedScene" id=8]
 [ext_resource path="res://pickups/gems/gold/NormalGoldGem.tscn" type="PackedScene" id=9]
 

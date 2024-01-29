@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://spells/fire_rapid/hand_fire_point.png" type="Texture" id=1]
+[ext_resource path="res://spells/fire_spell/fire_rapid/hand_fire_point.png" type="Texture" id=1]
 [ext_resource path="res://spells/Spell.gd" type="Script" id=2]
 
 [node name="Spell" type="Node2D"]

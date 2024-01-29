@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://bullets/fire_bullet/fire_ball/Fireball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://bullets/lightning_bullet/lightning.png" type="Texture" id=2]
+[ext_resource path="res://bullets/lightning_bullet/lightning_trail.png" type="Texture" id=3]
+[ext_resource path="res://bullets/lightning_bullet/hit_lightning.wav" type="AudioStream" id=4]
+[ext_resource path="res://bullets/lightning_bullet/zeus's_light_arrow/ZeusLightArrow.gd" type="Script" id=5]
+[ext_resource path="res://spells/lightning_spell/shoot_lightning.wav" type="AudioStream" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[sub_resource type="Animation" id=4]
+resource_name = "loading"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 0.34151, 1 ),
+"update": 0,
+"values": [ Vector2( 0.125709, 0.125709 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[node name="ZeusLightArrow" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+damage = 5
+
+[node name="Sprite" parent="." index="0"]
+material = SubResource( 1 )
+position = Vector2( 0, -0.382798 )
+texture = ExtResource( 2 )
+
+[node name="Trail" parent="Sprite" index="0"]
+material = SubResource( 2 )
+texture = ExtResource( 3 )
+offset = Vector2( -90, 0 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+disabled = true
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "loading"
+anims/loading = SubResource( 4 )
+
+[node name="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource( 4 )
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource( 6 )

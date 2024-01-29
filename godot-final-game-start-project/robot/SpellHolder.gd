@@ -20,29 +20,29 @@ enum Type {FIRE, ICE, LIGHT}
 
 const fire_spell := {
 	0 : null,
-	1 : preload("res://spells/fire_basic/SpellBasicFire.tscn"),
-	2 : preload("res://spells/fire_spray/FireSpraySpell.tscn"),
-	3 : preload("res://spells/fire_spike/FireSpikeSpell.tscn")
-	
+	1 : preload("res://spells/fire_spell/fire_basic/SpellBasicFire.tscn"),
+	2 : preload("res://spells/fire_spell/fire_spray/FireSpraySpell.tscn"),
+	3 : preload("res://spells/fire_spell/fire_spike/FireSpikeSpell.tscn")
 }
 
 const ice_spell := {
 	0 : null,
-	1 : preload("res://spells/ice_punch/IceBasicSpell.tscn"),
-	2 : preload("res://spells/ice_punch/SuperIceSpell.tscn"),
-	3 : preload("res://spells/ice_cannon/IceCannon.tscn")
+	1 : preload("res://spells/ice_spell/ice_punch/IceBasicSpell.tscn"),
+	2 : preload("res://spells/ice_spell/super_ice_punch/SuperIceSpell.tscn"),
+	3 : preload("res://spells/ice_spell/ice_cannon/IceCannon.tscn")
 }
 
 const light_spell := {
 	0 : null,
-	1 : preload("res://spells/lightning_shot/LightningSpell.tscn"),
-	2 : preload("res://spells/loaded_shoot/LoadedShoot.tscn"),
-	3 : preload("res://spells/light_dart_shooter/DartShooter.tscn")
+	1 : preload("res://spells/lightning_spell/lightning_shot/LightningSpell.tscn"),
+	2 : preload("res://spells/lightning_spell/loaded_shoot/LoadedShoot.tscn"),
+	3 : preload("res://spells/lightning_spell/light_dart_shooter/DartShooter.tscn"),
+	4 : preload("res://spells/lightning_spell/zeus_light_bow/ZeusLightBow.tscn")
 }
 
 export(int, 0, 3) var fire_index := 1 setget set_fire_index
 export(int, 0, 3) var ice_index := 0 setget set_ice_index
-export(int, 0, 3) var light_index := 0 setget set_light_index
+export(int, 0, 4) var light_index := 0 setget set_light_index
 
 onready var max_fire_fragment := fire_index + 1 setget set_max_fire_fragment
 onready var max_ice_fragment := ice_index + 1 setget set_max_ice_fragment

@@ -355,7 +355,7 @@ func mace_emblem() -> void:
 	
 	var spinning_cannon : SpinningCannon = preload("res://spells/spell_attacks/SpinningCannon.tscn").instance()
 	spinning_cannon._target = spinning_cannon.Target.MOB
-	spinning_cannon.bullet_scene = preload("res://bullets/fire_spike/FireSpike.tscn")
+	spinning_cannon.bullet_scene = preload("res://bullets/fire_bullet/fire_spike/FireSpike.tscn")
 	spinning_cannon.max_range = 500.0
 	spinning_cannon.max_bullet_speed = 600.0
 	spinning_cannon.bullet_per_seconds = 15

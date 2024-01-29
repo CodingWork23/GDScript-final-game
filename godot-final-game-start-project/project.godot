@@ -112,7 +112,7 @@ _global_script_classes=[ {
 "base": "Spell",
 "class": "SpellBasicFire",
 "language": "GDScript",
-"path": "res://spells/fire_basic/SpellBasicFire.gd"
+"path": "res://spells/fire_spell/fire_basic/SpellBasicFire.gd"
 }, {
 "base": "Area2D",
 "class": "SpellHolder",

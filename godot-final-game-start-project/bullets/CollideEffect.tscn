@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://bullets/particle_bullet.png" type="Texture" id=1]
-[ext_resource path="res://bullets/lightning.tres" type="Texture" id=2]
+[ext_resource path="res://bullets/lightning_bullet/lightning.tres" type="Texture" id=2]
 
 [sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 0.151136 ), 0.0, 0.0, 0, 0, Vector2( 0.230337, 0.978409 ), -0.196143, -0.196143, 0, 0, Vector2( 0.47191, 0.496591 ), -1.47107, -1.47107, 0, 0, Vector2( 0.741573, 0.151136 ), 0.0449495, 0.0, 0, 0 ]

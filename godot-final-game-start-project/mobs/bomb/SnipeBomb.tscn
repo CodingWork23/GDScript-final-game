@@ -8,8 +8,8 @@
 [ext_resource path="res://bullets/particle_bullet.png" type="Texture" id=6]
 [ext_resource path="res://mobs/Cannon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://mobs/bomb/shock_area.svg" type="Texture" id=8]
-[ext_resource path="res://spells/fire_spray/shoot_fire.wav" type="AudioStream" id=9]
-[ext_resource path="res://bullets/lightning_ray/LightningRail.tscn" type="PackedScene" id=10]
+[ext_resource path="res://spells/fire_spell/fire_spray/shoot_fire.wav" type="AudioStream" id=9]
+[ext_resource path="res://bullets/lightning_bullet/lightning_ray/LightningRail.tscn" type="PackedScene" id=10]
 [ext_resource path="res://pickups/gems/gold/SmallGoldgem.tscn" type="PackedScene" id=11]
 [ext_resource path="res://pickups/gems/gold/NormalGoldGem.tscn" type="PackedScene" id=12]
 
