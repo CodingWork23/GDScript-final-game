@@ -2,7 +2,7 @@
 
 [ext_resource path="res://spells/Spell.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bullets/fire_bullet/fire_spike/FireSpike.tscn" type="PackedScene" id=2]
-[ext_resource path="res://spells/fire_spell/fire_spray/shoot_fire.wav" type="AudioStream" id=3]
+[ext_resource path="res://spells/fire_spell/shoot_fire.wav" type="AudioStream" id=3]
 [ext_resource path="res://spells/fire_spell/fire_spike/FireSpikeSpell.gd" type="Script" id=4]
 
 [node name="FireSpikeSpell" instance=ExtResource( 1 )]

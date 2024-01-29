@@ -250,7 +250,7 @@ func _on_FreezeTimer_timeout() -> void:
 	_skin.modulate = current_color
 
 # Poisened
-func _start_poisen(poisen_duration: int, poisen_hit_count: int) -> void:
+func _start_poisen(poisen_duration: float, poisen_hit_count: float) -> void:
 	_poisen_duration.wait_time = poisen_duration + 1
 	_poisen_range.wait_time = (_poisen_duration.wait_time - 1) / poisen_hit_count
 	current_color = poisen_color

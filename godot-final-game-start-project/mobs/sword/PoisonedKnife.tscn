@@ -6,7 +6,7 @@
 [ext_resource path="res://mobs/sword/sword_inactive.png" type="Texture" id=4]
 [ext_resource path="res://mobs/hurt.wav" type="AudioStream" id=5]
 [ext_resource path="res://mobs/sword/PoisonedKnife.gd" type="Script" id=6]
-[ext_resource path="res://spells/fire_spell/fire_spray/shoot_fire.wav" type="AudioStream" id=7]
+[ext_resource path="res://spells/fire_spell/shoot_fire.wav" type="AudioStream" id=7]
 [ext_resource path="res://rooms/spawners/SpawnEffect.tscn" type="PackedScene" id=8]
 [ext_resource path="res://pickups/gems/gold/SmallGoldgem.tscn" type="PackedScene" id=9]
 

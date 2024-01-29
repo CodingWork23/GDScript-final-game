@@ -12,7 +12,7 @@ export var max_heal_kit := 2 setget set_max_heal_kit
 export var heal_power := 6 setget set_heal_power
 export var heal_kit := 1 setget set_heal_kit
 # SpellHolder
-export(int, 0, 3) var fire_index := 1 setget set_fire_index
+export(int, 0, 4) var fire_index := 1 setget set_fire_index
 export(int, 0, 3) var ice_index := 0 setget set_ice_index
 export(int, 0, 4) var light_index := 0 setget set_light_index
 export(SpellType) var current_type := 0 setget set_current_type

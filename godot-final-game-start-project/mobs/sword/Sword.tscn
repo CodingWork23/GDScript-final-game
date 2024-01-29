@@ -4,7 +4,7 @@
 [ext_resource path="res://mobs/sword/sword_inactive.png" type="Texture" id=2]
 [ext_resource path="res://mobs/sword/sword_active.png" type="Texture" id=3]
 [ext_resource path="res://mobs/sword/Sword.gd" type="Script" id=4]
-[ext_resource path="res://spells/fire_spell/fire_spray/shoot_fire.wav" type="AudioStream" id=5]
+[ext_resource path="res://spells/fire_spell/shoot_fire.wav" type="AudioStream" id=5]
 [ext_resource path="res://pickups/gems/gold/SmallGoldgem.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=2]

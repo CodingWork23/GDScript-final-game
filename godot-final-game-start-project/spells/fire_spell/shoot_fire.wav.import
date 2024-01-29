@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/shoot_fire.wav-e898fe6408e7252be500efd098eb6446.sample"
+path="res://.import/shoot_fire.wav-348ae5682d2a880b7e5e9d6b8f774e87.sample"
 
 [deps]
 
-source_file="res://spells/fire_spell/fire_spray/shoot_fire.wav"
-dest_files=[ "res://.import/shoot_fire.wav-e898fe6408e7252be500efd098eb6446.sample" ]
+source_file="res://spells/fire_spell/shoot_fire.wav"
+dest_files=[ "res://.import/shoot_fire.wav-348ae5682d2a880b7e5e9d6b8f774e87.sample" ]
 
 [params]
 

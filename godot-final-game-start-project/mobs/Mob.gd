@@ -23,6 +23,7 @@ var item_count : int
 
 onready var speed : float = normal_speed
 var freeze_color := Color(0.241699, 0.921192, 0.9375)
+var poisen_color := Color(0.478431, 0.992157, 0.498039)
 # This will be set if the robot is in view
 var _target: Robot = null
 # if the robot can be attacked
@@ -245,5 +246,27 @@ func _start_freezing(freeze_power: float) -> void:
 
 func _on_FreezeTimer_timeout() -> void:
 	speed = normal_speed
+	_sprite.modulate = Color(1, 1, 1)
+	_sprite_alert.modulate = Color(1, 1, 1)
+
+func _start_poisen(poisen_duration: float, poisen_hit_count: float) -> void:
+	var poisen_range := (poisen_duration - 1) / poisen_hit_count
+	var timer : Timer = Timer.new()
+	timer.wait_time = poisen_duration
+	timer.one_shot = true
+	_sprite.modulate = poisen_color
+	_sprite_alert.modulate = poisen_color
+	
+	get_tree().root.add_child(timer)
+	#yield(timer, "ready")
+	timer.start()
+	
+	var poisen_is_active : bool = not timer.is_stopped()
+	
+	while(poisen_is_active):
+		yield(get_tree().create_timer(poisen_range), "timeout")
+		if health > 0 and not timer.is_stopped():
+			take_damage(1)
+	
 	_sprite.modulate = Color(1, 1, 1)
 	_sprite_alert.modulate = Color(1, 1, 1)

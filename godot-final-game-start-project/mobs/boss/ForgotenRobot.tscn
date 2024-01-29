@@ -7,7 +7,7 @@
 [ext_resource path="res://mobs/boss/BossSprite.gd" type="Script" id=5]
 [ext_resource path="res://mobs/Cannon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://bullets/fire_bullet/fire_spike/FireSpike.tscn" type="PackedScene" id=7]
-[ext_resource path="res://spells/fire_spell/fire_spray/shoot_fire.wav" type="AudioStream" id=8]
+[ext_resource path="res://spells/fire_spell/shoot_fire.wav" type="AudioStream" id=8]
 [ext_resource path="res://robot/smoke.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]

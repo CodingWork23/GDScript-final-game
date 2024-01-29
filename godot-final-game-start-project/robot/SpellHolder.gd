@@ -22,7 +22,8 @@ const fire_spell := {
 	0 : null,
 	1 : preload("res://spells/fire_spell/fire_basic/SpellBasicFire.tscn"),
 	2 : preload("res://spells/fire_spell/fire_spray/FireSpraySpell.tscn"),
-	3 : preload("res://spells/fire_spell/fire_spike/FireSpikeSpell.tscn")
+	3 : preload("res://spells/fire_spell/fire_spike/FireSpikeSpell.tscn"),
+	4 : preload("res://spells/fire_spell/chemical_weapon/ChemicalWeapon.tscn")
 }
 
 const ice_spell := {
@@ -40,7 +41,7 @@ const light_spell := {
 	4 : preload("res://spells/lightning_spell/zeus_light_bow/ZeusLightBow.tscn")
 }
 
-export(int, 0, 3) var fire_index := 1 setget set_fire_index
+export(int, 0, 4) var fire_index := 1 setget set_fire_index
 export(int, 0, 3) var ice_index := 0 setget set_ice_index
 export(int, 0, 4) var light_index := 0 setget set_light_index
 
