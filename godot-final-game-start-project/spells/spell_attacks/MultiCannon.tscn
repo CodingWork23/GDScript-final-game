@@ -2,15 +2,56 @@
 
 [ext_resource path="res://spells/fire_spell/fire_spray/FireSpraySpell.tscn" type="PackedScene" id=1]
 [ext_resource path="res://spells/spell_attacks/CannonSpell.gd" type="Script" id=2]
-[ext_resource path="res://spells/spell_attacks/SpinningCannon.gd" type="Script" id=3]
-[ext_resource path="res://bullets/fire_bullet/fire_ball/Fireball.tscn" type="PackedScene" id=4]
+[ext_resource path="res://spells/spell_attacks/MultiCannon.gd" type="Script" id=3]
+[ext_resource path="res://bullets/ice_bullet/ice_fist/Icefist.tscn" type="PackedScene" id=4]
 
-[node name="SpinningCannon" type="Position2D"]
+[node name="MultiCannon" type="Position2D"]
 script = ExtResource( 3 )
 bullet_scene = ExtResource( 4 )
+max_bullet_speed = 500.0
 
 [node name="FireSpraySpell" parent="." instance=ExtResource( 1 )]
 position = Vector2( 64, 0 )
+script = ExtResource( 2 )
+random_angle_degrees = 10.0
+max_range = 2000.0
+max_bullet_speed = 1500.0
+fire_rate = 3.0
+_target = 0
+
+[node name="FireSpraySpell5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 48, -48 )
+rotation = -0.785397
+script = ExtResource( 2 )
+random_angle_degrees = 10.0
+max_range = 2000.0
+max_bullet_speed = 1500.0
+fire_rate = 3.0
+_target = 0
+
+[node name="FireSpraySpell6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 48, 48 )
+rotation = 0.785397
+script = ExtResource( 2 )
+random_angle_degrees = 10.0
+max_range = 2000.0
+max_bullet_speed = 1500.0
+fire_rate = 3.0
+_target = 0
+
+[node name="FireSpraySpell7" parent="." instance=ExtResource( 1 )]
+position = Vector2( -48, 48 )
+rotation = 2.35619
+script = ExtResource( 2 )
+random_angle_degrees = 10.0
+max_range = 2000.0
+max_bullet_speed = 1500.0
+fire_rate = 3.0
+_target = 0
+
+[node name="FireSpraySpell8" parent="." instance=ExtResource( 1 )]
+position = Vector2( -48, -48 )
+rotation = 3.92699
 script = ExtResource( 2 )
 random_angle_degrees = 10.0
 max_range = 2000.0

@@ -40,7 +40,7 @@ func _ready() -> void:
 # wind-up animation.
 func shoot() -> void:
 	var bullet: Bullet = bullet_scene.instance()
-	get_tree().root.add_child(bullet)
+	get_tree().current_scene.add_child(bullet)
 	bullet.global_transform = global_transform
 	bullet.max_range = max_range
 	bullet.speed = max_bullet_speed

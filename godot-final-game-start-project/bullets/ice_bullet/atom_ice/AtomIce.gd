@@ -16,6 +16,7 @@ func _destroy() -> void:
 	explode_sound.play()
 	_audio.play()
 	_disable()
+	shoot_multi_cannon()
 
 func _hit_body(body: Node) -> void:
 	if body.has_method("_start_freezing"):
@@ -27,3 +28,11 @@ func _on_ExplodeArea_body_entered(body: Node2D) -> void:
 		body._start_freezing(freeze_power)
 	if body.has_method("take_damage"):
 		body.take_damage(explode_damage)
+
+func shoot_multi_cannon() -> void:
+	var multi_cannon : SpinningCannon = preload("res://spells/spell_attacks/MultiCannon.tscn").instance()
+	
+	multi_cannon.global_position = global_position
+	
+	get_tree().root.add_child(multi_cannon)
+	

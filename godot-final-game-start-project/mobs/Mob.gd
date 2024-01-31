@@ -59,6 +59,7 @@ onready var _animation_player := $AnimationPlayer
 onready var _ray_cast : RayCast2D = $RayCast2D
 
 onready var _freeze_timer := $FreezeTimer
+onready var poisen_timer := $PoisenTimer
 
 
 func _ready() -> void:
@@ -250,22 +251,19 @@ func _on_FreezeTimer_timeout() -> void:
 	_sprite_alert.modulate = Color(1, 1, 1)
 
 func _start_poisen(poisen_duration: float, poisen_hit_count: float) -> void:
+	if not poisen_timer.is_stopped():
+		poisen_timer.start()
 	var poisen_range := (poisen_duration - 1) / poisen_hit_count
-	var timer : Timer = Timer.new()
-	timer.wait_time = poisen_duration
-	timer.one_shot = true
+	poisen_timer.wait_time = poisen_duration
 	_sprite.modulate = poisen_color
 	_sprite_alert.modulate = poisen_color
 	
-	get_tree().root.add_child(timer)
-	#yield(timer, "ready")
-	timer.start()
+	poisen_timer.start()
 	
-	var poisen_is_active : bool = not timer.is_stopped()
 	
-	while(poisen_is_active):
+	while(not poisen_timer.is_stopped()):
 		yield(get_tree().create_timer(poisen_range), "timeout")
-		if health > 0 and not timer.is_stopped():
+		if health > 1 and not poisen_timer.is_stopped():
 			take_damage(1)
 	
 	_sprite.modulate = Color(1, 1, 1)

@@ -18,19 +18,20 @@ export var robot_stats : Resource = null
 
 enum Type {FIRE, ICE, LIGHT}
 
-const fire_spell := {
+var fire_spell := {
 	0 : null,
-	1 : preload("res://spells/fire_spell/fire_basic/SpellBasicFire.tscn"),
-	2 : preload("res://spells/fire_spell/fire_spray/FireSpraySpell.tscn"),
-	3 : preload("res://spells/fire_spell/fire_spike/FireSpikeSpell.tscn"),
-	4 : preload("res://spells/fire_spell/chemical_weapon/ChemicalWeapon.tscn")
+	1 : load("res://spells/fire_spell/fire_basic/SpellBasicFire.tscn"),
+	2 : load("res://spells/fire_spell/fire_spray/FireSpraySpell.tscn"),
+	3 : load("res://spells/fire_spell/fire_spike/FireSpikeSpell.tscn"),
+	4 : load("res://spells/fire_spell/chemical_weapon/ChemicalWeapon.tscn"),
 }
 
 const ice_spell := {
 	0 : null,
 	1 : preload("res://spells/ice_spell/ice_punch/IceBasicSpell.tscn"),
 	2 : preload("res://spells/ice_spell/super_ice_punch/SuperIceSpell.tscn"),
-	3 : preload("res://spells/ice_spell/ice_cannon/IceCannon.tscn")
+	3 : preload("res://spells/ice_spell/ice_cannon/IceCannon.tscn"),
+	4 : preload("res://spells/ice_spell/atom_thrower/AtomThrower.tscn")
 }
 
 const light_spell := {
@@ -42,7 +43,7 @@ const light_spell := {
 }
 
 export(int, 0, 4) var fire_index := 1 setget set_fire_index
-export(int, 0, 3) var ice_index := 0 setget set_ice_index
+export(int, 0, 4) var ice_index := 0 setget set_ice_index
 export(int, 0, 4) var light_index := 0 setget set_light_index
 
 onready var max_fire_fragment := fire_index + 1 setget set_max_fire_fragment

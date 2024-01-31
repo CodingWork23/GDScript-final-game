@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://bullets/ice_bullet/IceSplashParticles2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mobs/bomb/shock_area.svg" type="Texture" id=2]
@@ -6,7 +6,10 @@
 [ext_resource path="res://bullets/ice_bullet/ice.png" type="Texture" id=4]
 [ext_resource path="res://bullets/ice_bullet/ice_trail.png" type="Texture" id=5]
 [ext_resource path="res://bullets/ice_bullet/hit_ice.wav" type="AudioStream" id=6]
-[ext_resource path="res://bullets/ice_bullet/ice_bomb/IceBomb.gd" type="Script" id=7]
+[ext_resource path="res://bullets/ice_bullet/atom_ice/AtomIce.gd" type="Script" id=7]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 44, 48 )
@@ -349,22 +352,22 @@ tracks/7/keys = {
 [sub_resource type="CircleShape2D" id=5]
 radius = 0.01
 
-[node name="IceBomb" type="Area2D"]
+[node name="AtomIce" type="Area2D"]
 collision_layer = 0
 collision_mask = 18
 script = ExtResource( 7 )
-speed = 400.0
-damage = 5
-max_range = 400.0
-explode_damage = 3
+damage = 4
+explode_damage = 5
 
 [node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 6 )
 position = Vector2( 0, 0.459456 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 
 [node name="Trail" type="Sprite" parent="Sprite"]
 show_behind_parent = true
+material = SubResource( 6 )
 scale = Vector2( 1e-05, 1 )
 texture = ExtResource( 5 )
 offset = Vector2( -27, 0 )

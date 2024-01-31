@@ -58,4 +58,7 @@ func _destroy():
 	_animation_player.play("destroy")
 
 func _on_body_entered(body: Node) -> void:
-	_hit_body(body)
+	if body is Mob or body is Bomb or body is Sword:
+		_hit_body(body)
+	else:
+		_destroy()

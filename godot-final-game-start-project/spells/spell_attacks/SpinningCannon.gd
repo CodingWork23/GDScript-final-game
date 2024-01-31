@@ -15,6 +15,12 @@ export (float, 100.0, 2000.0, 1.0) var max_range := 1000.0
 export (float, 100.0, 3000.0, 1.0) var max_bullet_speed := 800.0
 
 func _ready() -> void:
+	set_cannon_stats()
+	
+	prepare_exiting()
+		
+
+func set_cannon_stats() -> void:
 	for cannon in get_children():
 		cannon.bullet_scene = bullet_scene
 		cannon.shoot_duration_timer.wait_time = duration
@@ -26,12 +32,13 @@ func _ready() -> void:
 		cannon._audio.volume_db = -1
 		
 		cannon.start_spray()
-	
-	yield(get_tree().create_timer(duration), "timeout")
-	#yield(cannon._audio, "finished")
-	queue_free()
-		
 
+func prepare_exiting() -> void:
+	yield(get_tree().create_timer(duration), "timeout")
+	queue_free()
 
 func _physics_process(delta: float) -> void:
+	rotate_cannons()
+
+func rotate_cannons() -> void:
 	rotation_degrees += spin_speed
