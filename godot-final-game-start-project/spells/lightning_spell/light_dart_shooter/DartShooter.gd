@@ -5,4 +5,6 @@ func _physics_process(delta: float) -> void:
 		for _i in range(_bullet_count):
 			shoot()
 		_cooldown_timer.start()
+		
+		Events.emit_signal("set_spell_cooldown", _cooldown_timer.wait_time)
 	

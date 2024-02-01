@@ -6,4 +6,5 @@ func _physics_process(_delta: float) -> void:
 
 func shoot() -> void:
 	_cooldown_timer.start()
+	Events.emit_signal("set_spell_cooldown", _cooldown_timer.wait_time)
 	.shoot()

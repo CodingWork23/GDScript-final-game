@@ -177,14 +177,23 @@ func set_light_fragment(new_light_fragment: int) -> void:
 
 func set_max_fire_fragment(new_value: int) -> void:
 	max_fire_fragment = clamp(new_value, 0, fire_spell.size() + 1)
+	if new_value > fire_spell.size():
+		Events.emit_signal("update_max_spell_bar", 0, max_fire_fragment, true)
+		return
 	Events.emit_signal("update_max_spell_bar", 0, max_fire_fragment)
 	
 func set_max_ice_fragment(new_value: int) -> void:
 	max_ice_fragment = clamp(new_value, 0, ice_spell.size() + 1)
+	if new_value > ice_spell.size():
+		Events.emit_signal("update_max_spell_bar", 1, max_ice_fragment, true)
+		return
 	Events.emit_signal("update_max_spell_bar", 1, max_ice_fragment)
 	
 func set_max_light_fragment(new_value: int) -> void:
 	max_light_fragment = clamp(new_value, 0, light_spell.size() + 1)
+	if new_value > light_spell.size():
+		Events.emit_signal("update_max_spell_bar", 2, max_light_fragment, true)
+		return
 	Events.emit_signal("update_max_spell_bar", 2, max_light_fragment)
 
 func increase_spell_fragment(spell_type_name: String) -> void:
@@ -240,6 +249,7 @@ func set_spell_scene(spell_type_name: String) -> void:
 		spell._cooldown_timer.start()
 		
 		Events.emit_signal("selected_spell_changed", spell_type[spell_type_name])
+		Events.emit_signal("set_spell_cooldown", spell._cooldown_timer.wait_time)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("cycle_weapon_up"):

@@ -31,8 +31,10 @@ signal no_mobs_in_view() # on Teleporter
 
 # Inventory
 signal selected_spell_changed(scene)
+signal set_spell_cooldown(sec)
 signal update_max_spell_bar(type_index, updated_value)
 signal update_spell_bar(type_index, updated_value)
+signal last_spell_bar()
 
 # Main
 signal end_game()

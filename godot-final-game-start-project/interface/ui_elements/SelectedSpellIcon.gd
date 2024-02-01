@@ -57,6 +57,18 @@ onready var _flame := $FlameSection/Flame
 onready var _ice := $IceSection/Ice
 onready var _light := $LightSection/Lightning
 
+onready var _flame_progress := $FlameSection/Flame/TextureProgress
+onready var _ice_progress := $IceSection/Ice/TextureProgress
+onready var _lightning_progress := $LightSection/Lightning/TextureProgress
+
+onready var cooldown_timer := $CoolDownTimer
+
+
+onready var _icon_progress := {
+	Type.FLAME : _flame_progress,
+	Type.ICE : _ice_progress,
+	Type.LIGHTNING : _lightning_progress
+}
 
 
 
@@ -64,9 +76,12 @@ func _ready() -> void:
 	# Connect to the global event bus to change the selected visual if the player
 	# picks a different spell.
 	Events.connect("selected_spell_changed", self, "_set_current_spell_from_scene")
+	Events.connect("set_spell_cooldown", self, "set_progress_timer")
 	
 	_update_icons_visibility()
 
+func _process(delta: float) -> void:
+	_icon_progress[current_spell_type].value = cooldown_timer.time_left
 
 func hide_particles() -> void:
 	for particle in _flame.get_children():
@@ -109,8 +124,17 @@ func set_current_spell_type(new_type: int) -> void:
 		_update_icons_visibility()
 
 
+func set_progress_timer(sec: float) -> void:
+	_icon_progress[current_spell_type].max_value = sec
+	cooldown_timer.wait_time = sec
+	cooldown_timer.start()
+
 # Hides or shows icons depending on the value of _current_spell_type
 func _update_icons_visibility() -> void:
 	_flame_icon.visible = current_spell_type == Type.FLAME
 	_ice_icon.visible = current_spell_type == Type.ICE
 	_lightning_icon.visible = current_spell_type == Type.LIGHTNING
+	
+	_flame_progress.visible = current_spell_type == Type.FLAME
+	_ice_progress.visible = current_spell_type == Type.ICE
+	_lightning_progress.visible = current_spell_type == Type.LIGHTNING

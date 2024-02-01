@@ -17,3 +17,5 @@ func shoot() -> void:
 	
 	loadinng_timer.start()
 	_cooldown_timer.start()
+	
+	Events.emit_signal("set_spell_cooldown", _cooldown_timer.wait_time)

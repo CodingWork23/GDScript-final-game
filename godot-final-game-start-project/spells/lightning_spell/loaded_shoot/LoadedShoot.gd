@@ -17,6 +17,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_audio.play()
 		audio_disabled = true
 		_cooldown_timer.start()
+		
+		Events.emit_signal("set_spell_cooldown", _cooldown_timer.wait_time)
 
 func shoot() -> void:
 	var bullet: Bullet = bullet_scene.instance()
