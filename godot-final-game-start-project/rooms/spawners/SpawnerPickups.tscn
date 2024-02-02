@@ -11,5 +11,5 @@
 [node name="SpawnerPickups" instance=ExtResource( 1 )]
 texture = ExtResource( 5 )
 script = ExtResource( 2 )
-list = [ ExtResource( 10 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 6 ) ]
+list = [ ExtResource( 10 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ) ]
 spawn_chance = 50.0

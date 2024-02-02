@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://rooms/spawners/SpawnerPickups.tscn" type="PackedScene" id=1]
+[ext_resource path="res://rooms/BaseRoom.tscn" type="PackedScene" id=2]
+[ext_resource path="res://rooms/obstacles/pots/PotStone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://rooms/spawners/SpawnerMiniBoss.tscn" type="PackedScene" id=4]
+[ext_resource path="res://rooms/obstacles/pots/PotStoneStacked.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rooms/spawners/SpawnerLootChest.tscn" type="PackedScene" id=6]
+[ext_resource path="res://rooms/spawners/SpawnerMob.tscn" type="PackedScene" id=7]
+[ext_resource path="res://rooms/obstacles/pots/PotClayStacked.tscn" type="PackedScene" id=8]
+[ext_resource path="res://rooms/obstacles/pots/PotClay.tscn" type="PackedScene" id=9]
+[ext_resource path="res://rooms/obstacles/tables/LargeTableRight.tscn" type="PackedScene" id=10]
+[ext_resource path="res://rooms/trader/TradeProduct.tscn" type="PackedScene" id=11]
+[ext_resource path="res://rooms/trader/TraderGuy.tscn" type="PackedScene" id=12]
+
+[node name="TraderB" instance=ExtResource( 2 )]
+
+[node name="bridges" parent="." index="0"]
+tile_data = PoolIntArray( -131067, 5, 4, -131066, 5, 4, -65531, 5, 4, -65530, 5, 4, 65539, 5, 2, 196609, 6, 0, 327678, 5, 2, 327679, 5, 2, 262155, 5, 2, 262156, 5, 2, 393214, 5, 2, 393215, 5, 2, 327691, 5, 2, 327692, 5, 2, 720901, 6, 0, 720902, 6, 0, 786437, 5, 4, 786438, 5, 4 )
+
+[node name="Floor" parent="." index="1"]
+tile_data = PoolIntArray( 1, 3, 0, 2, 3, 2, 4, 3, 0, 5, 3, 65536, 6, 3, 65536, 7, 3, 65536, 8, 3, 65536, 9, 3, 65536, 10, 3, 2, 65536, 3, 0, 65537, 3, 65536, 65538, 3, 65536, 65540, 3, 65536, 65541, 3, 131074, 65542, 3, 196609, 65543, 3, 65538, 65544, 3, 65536, 65545, 3, 65537, 65546, 3, 65536, 131072, 3, 262147, 131073, 3, 131076, 131074, 3, 262149, 131076, 3, 65536, 131077, 3, 65536, 131078, 3, 196608, 131079, 3, 131074, 131080, 3, 196609, 131081, 3, 65538, 131082, 3, 65536, 196612, 3, 262147, 196613, 3, 65536, 196614, 3, 65536, 196615, 3, 131072, 196616, 3, 131072, 196617, 3, 131072, 196618, 3, 65536, 262144, 3, 0, 262145, 3, 65536, 262146, 3, 2, 262149, 3, 65536, 262150, 3, 131074, 262151, 3, 65536, 262152, 3, 196612, 262153, 3, 65536, 262154, 3, 65536, 327680, 3, 65536, 327681, 3, 196608, 327682, 3, 65536, 327683, 3, 2, 327685, 3, 65536, 327686, 3, 65536, 327687, 3, 65536, 327689, 3, 65536, 327690, 3, 65536, 393216, 3, 262147, 393217, 3, 65536, 393218, 3, 196609, 393219, 3, 65536, 393220, 3, 65536, 393221, 3, 65536, 393222, 3, 196609, 393223, 3, 65536, 393225, 3, 262147, 393226, 3, 262149, 458753, 3, 65536, 458754, 3, 65538, 458755, 3, 65538, 458756, 3, 131072, 458757, 3, 131074, 458758, 3, 196609, 458759, 3, 65536, 458760, 3, 2, 524288, 3, 0, 524289, 3, 65536, 524290, 3, 131072, 524291, 3, 131074, 524292, 3, 65538, 524293, 3, 196608, 524294, 3, 65538, 524295, 3, 131074, 524296, 3, 65536, 524297, 3, 65536, 524298, 3, 2, 589824, 3, 65539, 589825, 3, 65536, 589826, 3, 131072, 589827, 3, 131072, 589828, 3, 65536, 589829, 3, 65538, 589830, 3, 65538, 589831, 3, 131072, 589832, 3, 196608, 589833, 3, 65536, 589834, 3, 262149, 655361, 3, 65539, 655362, 3, 262145, 655363, 3, 196612, 655364, 3, 131076, 655365, 3, 131075, 655366, 3, 65540, 655367, 3, 131075, 655368, 3, 262145, 655369, 3, 262149 )
+
+[node name="Details" parent="." index="2"]
+tile_data = PoolIntArray( 65541, 4, 65538, 131077, 2, 65536, 131078, 2, 65537, 131079, 2, 65538, 196613, 2, 131072, 196614, 2, 131076, 196615, 2, 131074, 196617, 4, 65537, 262146, 4, 2, 262149, 2, 131072, 262150, 2, 131073, 262151, 2, 131075, 327681, 2, 65536, 327682, 2, 65537, 327683, 2, 65538, 327685, 2, 131077, 327686, 2, 65539, 327687, 2, 196610, 327689, 4, 2, 393217, 2, 196608, 393218, 2, 65541, 393219, 2, 131075, 393221, 2, 196608, 393222, 2, 196610, 458753, 4, 0, 458754, 2, 196608, 458755, 2, 196610, 589828, 4, 0 )
+
+[node name="Walls" parent="." index="3"]
+tile_data = PoolIntArray( -65529, 1, 65540, -65528, 1, 262148, -65527, 1, 5, 7, 1, 131077, 8, 1, 327684, 131076, 1, 131077, 524288, 1, 131077, 524298, 1, 131077, 589826, 1, 4, 589827, 1, 5 )
+
+[node name="Limits" parent="." index="4"]
+z_index = -1
+tile_data = PoolIntArray( -131068, 1, 0, -131065, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0, 65535, 1, 0, 0, 1, 0, 3, 1, 0, 11, 1, 0, 131071, 1, 0, 65547, 1, 0, 196607, 1, 0, 131072, 0, 0, 131074, 0, 0, 131075, 1, 0, 131083, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 0, 0, 196619, 1, 0, 196620, 1, 0, 262147, 1, 0, 262148, 1, 0, 262152, 0, 0, 327684, 1, 0, 327688, 1, 0, 458750, 1, 0, 458751, 1, 0, 393216, 0, 0, 393224, 1, 0, 393225, 0, 0, 393226, 0, 0, 393227, 1, 0, 393228, 1, 0, 524287, 1, 0, 458752, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 589823, 1, 0, 524299, 1, 0, 655359, 1, 0, 589824, 0, 0, 589834, 0, 0, 589835, 1, 0, 720895, 1, 0, 655360, 1, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 1, 0, 655371, 1, 0, 720896, 1, 0, 720897, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 1, 0, 720906, 1, 0, 786436, 1, 0, 786439, 1, 0 )
+
+[node name="SpawnerMob" parent="Mobs" index="0" instance=ExtResource( 7 )]
+position = Vector2( 1088, 384 )
+
+[node name="SpawnerMob2" parent="Mobs" index="1" instance=ExtResource( 7 )]
+position = Vector2( 768, 832 )
+
+[node name="SpawnerMob3" parent="Mobs" index="2" instance=ExtResource( 7 )]
+position = Vector2( 192, 192 )
+
+[node name="SpawnerMob4" parent="Mobs" index="3" instance=ExtResource( 7 )]
+position = Vector2( 512, 960 )
+
+[node name="SpawnerMob5" parent="Mobs" index="4" instance=ExtResource( 7 )]
+position = Vector2( 1024, 1088 )
+
+[node name="SpawnerMiniBoss" parent="Mobs" index="5" instance=ExtResource( 4 )]
+position = Vector2( 896, 640 )
+
+[node name="SpawnerLootChest" parent="Items" index="0" instance=ExtResource( 6 )]
+position = Vector2( 256, 64 )
+
+[node name="SpawnerPickups" parent="Items" index="1" instance=ExtResource( 1 )]
+position = Vector2( 832, 448 )
+
+[node name="SpawnerRobot" parent="." index="8"]
+position = Vector2( 256, 192 )
+
+[node name="LargeTableRight" parent="Obstacles" index="0" instance=ExtResource( 10 )]
+position = Vector2( 1215, 1049 )
+
+[node name="PotStone" parent="Obstacles" index="1" instance=ExtResource( 3 )]
+position = Vector2( 1254, 1053 )
+
+[node name="PotClayStacked" parent="Obstacles" index="2" instance=ExtResource( 5 )]
+position = Vector2( 1311, 1158 )
+
+[node name="PotClay" parent="Obstacles" index="3" instance=ExtResource( 9 )]
+position = Vector2( 1356, 32 )
+
+[node name="PotClayStacked2" parent="Obstacles" index="4" instance=ExtResource( 8 )]
+position = Vector2( 1295, 14 )
+
+[node name="PotClayStacked3" parent="Obstacles" index="5" instance=ExtResource( 5 )]
+position = Vector2( 1383, 76 )
+
+[node name="PotStone2" parent="Obstacles" index="6" instance=ExtResource( 3 )]
+position = Vector2( 1309, 46 )
+
+[node name="PotClayStacked4" parent="Obstacles" index="7" instance=ExtResource( 8 )]
+position = Vector2( 1049, 75 )
+
+[node name="PotStone3" parent="Obstacles" index="8" instance=ExtResource( 3 )]
+position = Vector2( 1151, 171 )
+
+[node name="PotClay2" parent="Obstacles" index="9" instance=ExtResource( 9 )]
+position = Vector2( 1287, 193 )
+
+[node name="PotClayStacked5" parent="Obstacles" index="10" instance=ExtResource( 5 )]
+position = Vector2( 27, 148 )
+
+[node name="TraderGuy" parent="." index="15" instance=ExtResource( 12 )]
+position = Vector2( 1216, 64 )
+
+[node name="TradeProduct" parent="TraderGuy" index="4" instance=ExtResource( 11 )]
+position = Vector2( -128, 64 )
+
+[node name="TradeProduct2" parent="TraderGuy" index="5" instance=ExtResource( 11 )]
+position = Vector2( 0, 128 )
+
+[node name="TradeProduct3" parent="TraderGuy" index="6" instance=ExtResource( 11 )]
+position = Vector2( 128, 128 )

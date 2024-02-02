@@ -26,3 +26,4 @@ func shoot() -> void:
 func stop_shooting() -> void:
 	shoot_rate_timer.stop()
 	_cooldown_timer.start()
+	Events.emit_signal("set_spell_cooldown", _cooldown_timer.wait_time)

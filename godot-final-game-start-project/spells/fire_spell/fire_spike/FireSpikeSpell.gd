@@ -9,3 +9,4 @@ func shoot() -> void:
 	_cooldown_timer.start()
 	_audio.play()
 	.shoot()
+	Events.emit_signal("set_spell_cooldown", _cooldown_timer.wait_time)
