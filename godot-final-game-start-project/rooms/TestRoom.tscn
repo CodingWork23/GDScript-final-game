@@ -1,6 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
+[ext_resource path="res://pickups/health/pickup_heal_power/PickupHealPower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://rooms/spawners/SpawnerRobot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/assets/tileset_inivisible_walls.tres" type="TileSet" id=4]
 [ext_resource path="res://mobs/dummy/Dummy.tscn" type="PackedScene" id=5]
@@ -9,7 +10,6 @@
 [ext_resource path="res://rooms/loot_chest/TableLoot.tscn" type="PackedScene" id=10]
 [ext_resource path="res://rooms/spawners/SpawnerEmblem.tscn" type="PackedScene" id=11]
 [ext_resource path="res://rooms/loot_chest/PotClayGems.tscn" type="PackedScene" id=12]
-[ext_resource path="res://mobs/mace/Mace.tscn" type="PackedScene" id=17]
 [ext_resource path="res://rooms/loot_chest/LargeLootChest.tscn" type="PackedScene" id=19]
 
 [node name="TestRoom" type="YSort"]
@@ -113,5 +113,5 @@ position = Vector2( 448, 128 )
 [node name="LargeLootChest2" parent="." instance=ExtResource( 19 )]
 position = Vector2( 960, 448 )
 
-[node name="Mace" parent="." instance=ExtResource( 17 )]
-position = Vector2( 1024, 960 )
+[node name="PickupHealPower" parent="." instance=ExtResource( 2 )]
+position = Vector2( 640, 896 )

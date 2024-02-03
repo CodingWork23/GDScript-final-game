@@ -9,7 +9,8 @@ const product_prices := {
 	preload("res://pickups/lightnings_spells/PickupLightning.tscn") : 800, # Lightning
 	preload("res://pickups/health/pickup_extra_health/PickupExtraHealth.tscn") : 900, # Extra Health
 	preload("res://pickups/health/pickup_regeneration/PickupRegeneration.tscn") : 400, # Regeneration
-	preload("res://pickups/health/pickup_kit_slot/PickupKitSlot.tscn") : 1000
+	preload("res://pickups/health/pickup_kit_slot/PickupKitSlot.tscn") : 1000,
+	preload("res://pickups/health/pickup_heal_power/PickupHealPower.tscn") : 750
 }
 
 onready var price_label := $PriceHint/Label

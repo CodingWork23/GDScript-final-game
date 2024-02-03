@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://props/details/table_small.png" type="Texture" id=1]
 [ext_resource path="res://rooms/trader/TradeProduct.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://pickups/health/pickup_extra_health/PickupExtraHealth.tscn" type="PackedScene" id=8]
 [ext_resource path="res://pickups/health/pickup_regeneration/PickupRegeneration.tscn" type="PackedScene" id=9]
 [ext_resource path="res://pickups/health/pickup_kit_slot/PickupKitSlot.tscn" type="PackedScene" id=10]
+[ext_resource path="res://pickups/health/pickup_heal_power/PickupHealPower.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29, 22 )
@@ -21,7 +22,7 @@ extents = Vector2( 32, 50.5 )
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 2 )
-products = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
+products = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

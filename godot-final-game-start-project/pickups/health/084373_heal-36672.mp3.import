@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/084373_heal-36672.mp3-95fff9af9bafd73a1f12ff898b8def61.mp3str"
+
+[deps]
+
+source_file="res://pickups/health/084373_heal-36672.mp3"
+dest_files=[ "res://.import/084373_heal-36672.mp3-95fff9af9bafd73a1f12ff898b8def61.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

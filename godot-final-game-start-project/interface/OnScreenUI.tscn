@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://interface/ui_elements/HealthBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface/ui_elements/SelectedSpellIcon.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://interface/ui_elements/EmblemProgress.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/ui_elements/HealKit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/details/gems_yellow_1.png" type="Texture" id=7]
+[ext_resource path="res://interface/ui_elements/HealPowerBar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://pickups/health/pickup_heal_power/pickup_heart_pink.png" type="Texture" id=9]
 
 [node name="OnScreenUI" type="Control"]
 anchor_right = 1.0
@@ -77,9 +79,30 @@ margin_bottom = 26.0
 mouse_filter = 2
 
 [node name="EmblemProgress" parent="." instance=ExtResource( 5 )]
-margin_left = 399.0
-margin_top = 947.0
-margin_right = 463.0
-margin_bottom = 1011.0
+margin_left = 405.0
+margin_top = 945.0
+margin_right = 469.0
+margin_bottom = 1009.0
 mouse_filter = 2
 size_flags_horizontal = 0
+
+[node name="HealPower" type="VBoxContainer" parent="."]
+margin_left = 54.0
+margin_top = 312.0
+margin_right = 108.0
+margin_bottom = 842.0
+size_flags_vertical = 3
+custom_constants/separation = 18
+
+[node name="HealPowerBar" parent="HealPower" instance=ExtResource( 8 )]
+anchor_top = 0.0
+anchor_bottom = 0.0
+margin_top = 0.0
+margin_right = 54.0
+margin_bottom = 467.0
+
+[node name="TextureRect" type="TextureRect" parent="HealPower"]
+margin_top = 485.0
+margin_right = 54.0
+margin_bottom = 530.0
+texture = ExtResource( 9 )

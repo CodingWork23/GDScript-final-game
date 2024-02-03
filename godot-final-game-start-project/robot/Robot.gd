@@ -24,7 +24,7 @@ var sword_emblem_is_active : bool = false
 export var max_heal_kit := 2 setget set_max_heal_kit
 export var heal_kit := 1 setget set_heal_kit
 
-export var heal_power := 6
+export var heal_power := 6 setget set_heal_power
 # The character's speed in pixels per second.
 export var normal_speed := 650.0
 # Controls how quickly the body reaches its desired velocity. A value of 1 makes
@@ -74,9 +74,7 @@ onready var _emblem_cooldown_timer := $EmblemCooldownTimer
 func _ready() -> void:
 	show()
 	if robot_stats:
-		#max_health = robot_stats.max_health
-		heal_power = robot_stats.heal_power
-		
+		set_heal_power(robot_stats.heal_power)
 		set_max_health(robot_stats.max_health)
 		set_health(robot_stats.health)
 		set_max_heal_kit(robot_stats.max_heal_kit)
@@ -165,6 +163,14 @@ func use_heal_kit() -> void:
 	healing_poisen()
 	set_heal_kit(heal_kit - 1)
 
+func set_heal_power(new_power: int) -> void:
+	heal_power = new_power
+	if robot_stats:
+		robot_stats.heal_power = heal_power
+	Events.emit_signal("set_heal_power", heal_power)
+
+func increase_heal_power() -> void:
+	set_heal_power(heal_power + 1)
 
 func set_gold_gems(new_value: int) -> void:
 	gold_gems = clamp(new_value,0 , 9999)

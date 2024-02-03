@@ -19,5 +19,5 @@ ice_fragment = 1
 max_ice_fragment = 5
 light_fragment = 1
 max_light_fragment = 4
-gold_gems = 850
+gold_gems = 1150
 current_emblem = 0

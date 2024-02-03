@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/power-up-sparkle-1-177983.mp3-ca4d0446b76b274c99de864f18ebd4d5.mp3str"
+
+[deps]
+
+source_file="res://pickups/health/power-up-sparkle-1-177983.mp3"
+dest_files=[ "res://.import/power-up-sparkle-1-177983.mp3-ca4d0446b76b274c99de864f18ebd4d5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

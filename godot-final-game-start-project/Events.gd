@@ -3,6 +3,7 @@ extends Node
 # OnScreenUI
 signal mob_died(score_value)
 signal set_max_health(max_health)
+signal set_heal_power(heal_power)
 signal set_gold_gems(gem_value)
 signal flash_screen()
 # PlayerUI
