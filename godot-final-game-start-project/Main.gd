@@ -85,6 +85,7 @@ func _on_AnimationPlayer_animation_finished(animation: String) -> void:
 	if animation == "end_game":
 		game_events.current_level = 1
 		game_events.current_difficulty = 0
+		game_events.extra_payment = 0
 		get_tree().change_scene("res://interface/GameOver.tscn")
 	
 	if animation == "next_game":

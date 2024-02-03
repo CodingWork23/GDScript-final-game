@@ -34,3 +34,4 @@ func play_sound() -> void:
 		_audio.play()
 		audio_disabled = true
 		_cooldown_timer.start()
+		Events.emit_signal("set_spell_cooldown", _cooldown_timer.wait_time)

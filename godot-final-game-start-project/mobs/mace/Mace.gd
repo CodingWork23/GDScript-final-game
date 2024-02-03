@@ -1,6 +1,7 @@
 extends Sword
 
 
+
 func _on_BeforeAttackTimer_timeout() -> void:
 	._on_BeforeAttackTimer_timeout()
 	_animation_player.stop()
@@ -14,7 +15,7 @@ func _on_BeforeAttackTimer_timeout() -> void:
 	spinning_cannon.max_range = 800.0
 	add_child(spinning_cannon)
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, _ghost_effect: bool = true) -> void:
 	health -= amount
 	if health <= 0:
 		_die()

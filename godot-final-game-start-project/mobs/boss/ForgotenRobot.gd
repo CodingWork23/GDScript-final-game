@@ -102,7 +102,7 @@ func sprint_dash() -> void:
 	speed = 600.0
 	smoke_particles.emitting = true
 	
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(2), "timeout")
 	
 	speed = normal_speed
 	smoke_particles.emitting = false
@@ -147,7 +147,7 @@ func star_darts() -> void:
 	
 	var position_range := 250.0
 	for _i in range(12):
-		var bullet : Bullet = preload("res://bullets/light_dart/LightDart.tscn").instance()
+		var bullet : Bullet = preload("res://bullets/lightning_bullet/light_dart/LightDart.tscn").instance()
 		randomize()
 		var random_position := Vector2(
 			rand_range(-position_range, position_range), 

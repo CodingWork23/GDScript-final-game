@@ -8,7 +8,8 @@ func _ready() -> void:
 	_sprite_alert.modulate = poisen_color
 
 func _on_Hitbox_body_entered(body: Node2D) -> void:
-	._on_Hitbox_body_entered(body)
+	if body.has_method("take_damage"):
+		body.take_damage(damage, false)
 	if body.has_method("_start_poisen"):
 		body._start_poisen(poisen_duration, poisen_hit_count)
 	_die()

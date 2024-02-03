@@ -154,9 +154,6 @@ script = ExtResource( 5 )
 [node name="Alert" parent="Sprite" index="0"]
 texture = ExtResource( 2 )
 
-[node name="SpawnEffect" parent="." index="11"]
-visible = false
-
 [node name="SmokeParticles" type="Particles2D" parent="." index="12"]
 show_behind_parent = true
 position = Vector2( 0, 144 )
@@ -168,9 +165,8 @@ local_coords = false
 process_material = SubResource( 16 )
 texture = ExtResource( 9 )
 
-[node name="RayCast2D" parent="." index="13"]
-position = Vector2( 0, 49 )
-cast_to = Vector2( 2358, 0 )
+[node name="SpawnEffect" parent="." index="13"]
+visible = false
 
 [node name="AttackAnimation" type="AnimationPlayer" parent="." index="14"]
 anims/RESET = SubResource( 3 )
@@ -215,3 +211,7 @@ one_shot = true
 [node name="StarDartTimer" type="Timer" parent="." index="23"]
 wait_time = 20.0
 one_shot = true
+
+[node name="RayCast2D" parent="." index="24"]
+position = Vector2( 0, 49 )
+cast_to = Vector2( 2358, 0 )

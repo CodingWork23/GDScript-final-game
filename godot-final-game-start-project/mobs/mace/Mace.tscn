@@ -82,6 +82,7 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox" index="0"]
 position = Vector2( 35, 0 )
 shape = SubResource( 6 )
+disabled = true
 
 [node name="Timer" type="Timer" parent="Sprite/Hitbox" index="1"]
 

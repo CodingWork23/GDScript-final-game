@@ -355,6 +355,7 @@ func hammer_emblem() -> void:
 
 func mace_emblem() -> void:
 	var cooldown := 20.0
+	start_ghost_effect()
 	_emblem_cooldown_timer.wait_time = cooldown
 	_emblem_cooldown_timer.start()
 	Events.emit_signal("set_emblem_cooldown", cooldown)

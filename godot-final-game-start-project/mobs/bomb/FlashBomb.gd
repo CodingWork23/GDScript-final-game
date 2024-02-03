@@ -23,7 +23,8 @@ func _die() -> void:
 			_drop_loot()
 	
 func _on_ShockArea_body_entered(body: Node2D) -> void:
-	._on_ShockArea_body_entered(body)
+	if body.has_method("take_damage"):
+		body.take_damage(damage, false)
 	if body is Robot:
 		Events.emit_signal("flash_screen")
 

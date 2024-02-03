@@ -135,7 +135,7 @@ func set_health(new_health: int) -> void:
 	health = clamp(new_health, 0, 999)
 
 # Called by bullets.
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, _ghost_effect: bool = true) -> void:
 	set_health(health - amount)
 	if health <= 0:
 		_die()
@@ -253,6 +253,7 @@ func _on_FreezeTimer_timeout() -> void:
 func _start_poisen(poisen_duration: float, poisen_hit_count: float) -> void:
 	if not poisen_timer.is_stopped():
 		poisen_timer.start()
+		return
 	var poisen_range := (poisen_duration - 1) / poisen_hit_count
 	poisen_timer.wait_time = poisen_duration
 	_sprite.modulate = poisen_color

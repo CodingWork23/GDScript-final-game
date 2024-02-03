@@ -17,7 +17,7 @@ export(Array, int) var grid_height := [2, 3, 4]
 export(Array, int) var max_waves := [1, 2, 3]
 # Spawn Chance
 export(Array, float, 0.0, 100.0, 1.0) var mob_spawn_chance := [60.0, 75.0, 80.0]
-export(Array, float, 0.0, 100.0, 1.0) var miniboss_spawn_chance := [0.0, 10.0, 20.0]
+export(Array, float, 0.0, 100.0, 1.0) var miniboss_spawn_chance := [0.0, 8.0, 18.0]
 export(Array, float, 0.0, 100.0, 1.0) var pickup_spawn_chance := [30.0, 35.0, 40.0]
 
 # Trade Prices

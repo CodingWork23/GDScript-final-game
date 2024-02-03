@@ -18,6 +18,8 @@ var vector : Vector2
 func _ready() -> void:
 	hitbox.connect("body_entered", self, "_on_Hitbox_body_entered")
 	hitbox_timer.connect("timeout", self, "_hitbox_enable")
+	
+	hitbox_timer.start()
 
 func _physics_process(delta: float) -> void:
 	_dash(delta)

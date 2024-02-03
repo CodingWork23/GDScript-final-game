@@ -33,8 +33,8 @@ const scenes_types := {
 
 onready var particles := {
 	preload("res://spells/fire_spell/fire_basic/SpellBasicFire.tscn"): $FlameSection/Flame/PariclesSparkle,
-	preload("res://spells/fire_spell/fire_spike/FireSpikeSpell.tscn"): $FlameSection/Flame/PariclesSparkle2,
-	preload("res://spells/fire_spell/fire_spray/FireSpraySpell.tscn"): $FlameSection/Flame/Particles2D,
+	preload("res://spells/fire_spell/fire_spike/FireSpikeSpell.tscn"): $FlameSection/Flame/Particles2D,
+	preload("res://spells/fire_spell/fire_spray/FireSpraySpell.tscn"): $FlameSection/Flame/PariclesSparkle2,
 	preload("res://spells/fire_spell/chemical_weapon/ChemicalWeapon.tscn"): $FlameSection/Flame/Particles2D,
 	preload("res://spells/ice_spell/ice_punch/IceBasicSpell.tscn"): $IceSection/Ice/PariclesSparkle,
 	preload("res://spells/ice_spell/super_ice_punch/SuperIceSpell.tscn"): $IceSection/Ice/PariclesSparkle2,
