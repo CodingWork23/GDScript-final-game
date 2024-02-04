@@ -58,6 +58,7 @@ onready var _heal_sound := $HealSound
 onready var _dash_sound := $DashSound
 onready var _skin := $Skin
 onready var _smoke_particles := $SmokeParticles
+onready var _regeneration_particles := $RegenerationParticles
 onready var _spell_holder := $SpellHolder
 onready var _animation_emblem := $AnimationEmblem
 onready var _robot_collision := $CollisionShape2D
@@ -278,6 +279,7 @@ func healing_poisen() -> void:
 
 # Regeneration
 func _start_regeneration(duration: float, heal_value: float) -> void:
+	_regeneration_particles.emitting = true
 	_regeneration_timer.wait_time = duration
 	_heal_timer.wait_time = duration / heal_value
 	_regeneration_timer.start()
@@ -290,6 +292,7 @@ func _heal_regeneration() -> void:
 
 func _stop_regeneration() -> void:
 	_heal_timer.stop()
+	_regeneration_particles.emitting = false
 
 
 # Emblems

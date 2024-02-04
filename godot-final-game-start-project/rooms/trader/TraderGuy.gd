@@ -1,3 +1,4 @@
+class_name TraderGuy
 extends StaticBody2D
 
 export var game_events : Resource = null
@@ -17,6 +18,7 @@ onready var price_label := $PriceHint/Label
 onready var animation_player := $AnimationPlayer
 
 export var is_active : bool = false
+
 
 func _ready() -> void:
 	for child in get_children():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://game_events.tres" type="Resource" id=1]
 [ext_resource path="res://rooms/spawners/SpawnerPickups.gd" type="Script" id=2]
@@ -8,10 +8,11 @@
 [ext_resource path="res://rooms/spawners/spawner_pickup.svg" type="Texture" id=6]
 [ext_resource path="res://rooms/loot_chest/LootChest.tscn" type="PackedScene" id=7]
 [ext_resource path="res://rooms/loot_chest/LargeLootChest.tscn" type="PackedScene" id=8]
+[ext_resource path="res://rooms/trader/HealthGenerater.tscn" type="PackedScene" id=9]
 
 [node name="SpawnerLootChest" type="Sprite"]
 modulate = Color( 1, 0.984314, 0.00784314, 1 )
 texture = ExtResource( 6 )
 script = ExtResource( 2 )
-list = [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 4 ) ]
+list = [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 9 ) ]
 game_events = ExtResource( 1 )

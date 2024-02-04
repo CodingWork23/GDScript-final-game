@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://robot/Skin.gd" type="Script" id=1]
 [ext_resource path="res://robot/robot_sprites.png" type="Texture" id=2]
@@ -14,7 +14,15 @@
 [ext_resource path="res://spells/props/select_lightning.wav" type="AudioStream" id=12]
 [ext_resource path="res://spells/props/select_fire.wav" type="AudioStream" id=13]
 [ext_resource path="res://spells/fire_spell/shoot_fire.wav" type="AudioStream" id=14]
+[ext_resource path="res://rooms/teleporter/teleporter_particle_green.png" type="Texture" id=15]
+[ext_resource path="res://robot/RandomAudio.gd" type="Script" id=16]
 [ext_resource path="res://robot/smoke.png" type="Texture" id=17]
+[ext_resource path="res://robot/pain_02.wav" type="AudioStream" id=18]
+[ext_resource path="res://robot/pain_03.wav" type="AudioStream" id=19]
+[ext_resource path="res://robot/pain_01.wav" type="AudioStream" id=20]
+[ext_resource path="res://robot/pain_04.wav" type="AudioStream" id=21]
+[ext_resource path="res://robot/death_01.wav" type="AudioStream" id=22]
+[ext_resource path="res://robot/death_02.wav" type="AudioStream" id=23]
 
 [sub_resource type="Animation" id=5]
 length = 0.001
@@ -294,6 +302,30 @@ scale_random = 0.5
 scale_curve = SubResource( 21 )
 color_ramp = SubResource( 20 )
 
+[sub_resource type="Gradient" id=22]
+offsets = PoolRealArray( 0, 0.795252, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=25]
+gradient = SubResource( 22 )
+
+[sub_resource type="Curve" id=23]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.391667, 1 ), 0.134496, 0.134496, 0, 0, Vector2( 1, 0 ), -4.44156, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=26]
+curve = SubResource( 23 )
+
+[sub_resource type="ParticlesMaterial" id=24]
+emission_shape = 1
+emission_sphere_radius = 36.0
+flag_disable_z = true
+gravity = Vector3( 0, -49, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_curve = SubResource( 26 )
+color_ramp = SubResource( 25 )
+
 [sub_resource type="Animation" id=17]
 length = 0.001
 tracks/0/type = "value"
@@ -424,13 +456,24 @@ local_coords = false
 process_material = SubResource( 16 )
 texture = ExtResource( 17 )
 
+[node name="RegenerationParticles" type="Particles2D" parent="."]
+emitting = false
+amount = 3
+randomness = 0.5
+process_material = SubResource( 24 )
+texture = ExtResource( 15 )
+
 [node name="DamageAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 bus = "SFX"
+script = ExtResource( 16 )
+sounds = [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 4 ) ]
 
 [node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
 bus = "SFX"
+script = ExtResource( 16 )
+sounds = [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 8 ) ]
 
 [node name="HealSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )

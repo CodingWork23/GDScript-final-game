@@ -22,7 +22,7 @@ func _ready() -> void:
 	if game_events:
 		grid_width = game_events.grid_width[game_events.current_difficulty]
 		grid_height = game_events.grid_height[game_events.current_difficulty]
-		last_room_index = (grid_width * grid_height) - 1
+	last_room_index = (grid_width * grid_height) - 1
 	
 	generate_level()
 	on_ready_function()

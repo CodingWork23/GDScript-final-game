@@ -1,0 +1,154 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://pickups/health/pickup_health/PickupHealth.tscn" type="PackedScene" id=1]
+[ext_resource path="res://rooms/trader/Price.gd" type="Script" id=2]
+[ext_resource path="res://interface/theme/Interface.theme" type="Theme" id=3]
+[ext_resource path="res://props/details/gems_yellow_3.png" type="Texture" id=4]
+[ext_resource path="res://game_events.tres" type="Resource" id=5]
+[ext_resource path="res://rooms/teleporter/teleporter_particle_green.png" type="Texture" id=6]
+[ext_resource path="res://rooms/trader/TradeProduct.tscn" type="PackedScene" id=7]
+[ext_resource path="res://mobs/dummy/dummy.png" type="Texture" id=8]
+[ext_resource path="res://rooms/trader/HealthGenerater.gd" type="Script" id=9]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 19.105
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("PriceHint:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "hide_price"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("PriceHint:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "show_price"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("PriceHint:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Gradient" id=13]
+offsets = PoolRealArray( 0, 0.795252, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 13 )
+
+[sub_resource type="Curve" id=14]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.391667, 1 ), 0.134496, 0.134496, 0, 0, Vector2( 1, 0 ), -4.44156, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 14 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+emission_shape = 1
+emission_sphere_radius = 36.0
+flag_disable_z = true
+gravity = Vector3( 0, -49, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 11 )
+
+[node name="HealthGenerater" type="StaticBody2D"]
+position = Vector2( 0, 8 )
+collision_layer = 4
+collision_mask = 48
+script = ExtResource( 2 )
+game_events = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -31 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="PriceHint" type="HBoxContainer" parent="."]
+margin_left = -108.0
+margin_top = -145.0
+margin_right = 78.0
+margin_bottom = -56.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 107.972, 45.984 )
+alignment = 1
+
+[node name="Label" type="Label" parent="PriceHint"]
+margin_top = 16.0
+margin_right = 182.0
+margin_bottom = 72.0
+size_flags_horizontal = 7
+theme = ExtResource( 3 )
+text = "0000"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="Sprite" type="TextureRect" parent="PriceHint"]
+margin_left = 186.0
+margin_top = 44.0
+margin_right = 186.0
+margin_bottom = 44.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/hide_price = SubResource( 3 )
+anims/show_price = SubResource( 4 )
+
+[node name="TradeProduct" parent="." instance=ExtResource( 7 )]
+position = Vector2( 0, -8 )
+script = ExtResource( 9 )
+products = [ ExtResource( 1 ) ]
+
+[node name="Sprite" parent="TradeProduct" index="0"]
+modulate = Color( 0.65098, 1, 0.894118, 1 )
+
+[node name="RegenerationParticles" type="Particles2D" parent="."]
+position = Vector2( 0, -8 )
+amount = 3
+randomness = 0.5
+local_coords = false
+process_material = SubResource( 15 )
+texture = ExtResource( 6 )
+
+[editable path="TradeProduct"]

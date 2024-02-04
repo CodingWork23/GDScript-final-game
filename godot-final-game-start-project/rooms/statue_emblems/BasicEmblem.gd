@@ -10,6 +10,7 @@ export var price := 3000
 onready var _detection_area := $DetectionArea
 onready var animation_player := $AnimationPlayer
 onready var price_label := $PriceHint/Label
+onready var audio_player := $AudioStreamPlayer2D
 
 var robot : Robot = null
 
@@ -27,6 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and robot.gold_gems >= price:
 		robot.set_current_emblem(emblem_type)
 		robot.buy_product(price)
+		audio_player.play()
 
 
 func price_hint() -> void:

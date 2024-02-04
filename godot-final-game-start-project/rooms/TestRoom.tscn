@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
-[ext_resource path="res://pickups/health/pickup_heal_power/PickupHealPower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://rooms/trader/HealthGenerater.tscn" type="PackedScene" id=2]
 [ext_resource path="res://rooms/spawners/SpawnerRobot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/assets/tileset_inivisible_walls.tres" type="TileSet" id=4]
 [ext_resource path="res://mobs/dummy/Dummy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://pickups/health/pickup_kit_slot/PickupKitSlot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://rooms/TestRoom.gd" type="Script" id=7]
 [ext_resource path="res://interface/OnScreenUI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://rooms/loot_chest/TableLoot.tscn" type="PackedScene" id=10]
@@ -114,8 +113,10 @@ position = Vector2( 448, 128 )
 [node name="LargeLootChest2" parent="." instance=ExtResource( 19 )]
 position = Vector2( 960, 448 )
 
-[node name="PickupKitSlot" parent="." instance=ExtResource( 6 )]
-position = Vector2( 448, 640 )
+[node name="HealthGenerater" parent="." instance=ExtResource( 2 )]
+position = Vector2( 512, 648 )
+is_active = true
 
-[node name="PickupHealPower" parent="." instance=ExtResource( 2 )]
-position = Vector2( 192, 640 )
+[node name="HealthGenerater2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 384, 648 )
+is_active = true
