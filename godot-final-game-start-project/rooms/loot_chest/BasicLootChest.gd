@@ -48,7 +48,7 @@ func drop_item() -> void:
 	var item : Pickup = chest_inventory[random_inventory_index].instance()
 	var moving_item := MovingItem.new()
 	moving_item.collision_mask = 48
-	moving_item.fall_direction = 150
+	moving_item.fall_direction = 50
 	
 	add_child(moving_item)
 	moving_item.add_child(item)

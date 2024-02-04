@@ -21,7 +21,7 @@ func _move(delta: float) -> void:
 
 	_travelled_distance += distance
 	
-	if int(_travelled_distance) % 200 == 0:
+	if int(_travelled_distance) % 150 == 0:
 		_shoot()
 	
 	if _travelled_distance > max_range:
