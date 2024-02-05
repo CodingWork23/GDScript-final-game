@@ -103,8 +103,11 @@ func _on_AnimationPlayer_animation_finished(animation: String) -> void:
 
 func toggle_the_game(toggle: bool) -> void:
 	_ui_screen.visible = toggle
-	_current_level_label.visible = toggle
 	Events.emit_signal("set_current_camera", toggle)
+	if game_events.current_level > game_events.level_amount:
+		_current_level_label.visible = false
+	else:
+		_current_level_label.visible = toggle
 	
 
 func _unhandled_input(event: InputEvent) -> void:

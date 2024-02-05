@@ -1,0 +1,345 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://interface/theme/title_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://pickups/health/pickup_heal_power/pickup_heart_pink.png" type="Texture" id=2]
+[ext_resource path="res://pickups/lightnings_spells/pickup_lightning_shot.png" type="Texture" id=3]
+[ext_resource path="res://pickups/ice_spells/pickup_ice.png" type="Texture" id=4]
+[ext_resource path="res://pickups/health/pickup_health/pickup_health.png" type="Texture" id=5]
+[ext_resource path="res://pickups/fire_spells/pickup_fire.png" type="Texture" id=6]
+[ext_resource path="res://pickups/health/pickup_kit_slot/pickup_gem.png" type="Texture" id=7]
+[ext_resource path="res://pickups/health/pickup_extra_health/pickup_heart_darkpink.png" type="Texture" id=8]
+[ext_resource path="res://pickups/health/pickup_regeneration/pickup_heart_teal.png" type="Texture" id=9]
+[ext_resource path="res://interface/theme/Interface.theme" type="Theme" id=10]
+[ext_resource path="res://common/pickup-cannon.svg" type="Texture" id=11]
+[ext_resource path="res://interface/HelpMenu.gd" type="Script" id=12]
+
+[node name="HelpMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 10 )
+script = ExtResource( 12 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0.0588235, 0.00784314, 0.180392, 0.721569 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = -100.0
+margin_bottom = -100.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 1720.0
+margin_bottom = 903.0
+size_flags_horizontal = 3
+custom_constants/separation = 54
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_right = 771.0
+margin_bottom = 903.0
+rect_pivot_offset = Vector2( 436, 60 )
+size_flags_horizontal = 3
+custom_constants/separation = 21
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 771.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+text = "Move Left : A"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 77.0
+margin_right = 771.0
+margin_bottom = 133.0
+custom_fonts/font = ExtResource( 1 )
+text = "Move Right : D"
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 154.0
+margin_right = 771.0
+margin_bottom = 210.0
+custom_fonts/font = ExtResource( 1 )
+text = "Move Up : W"
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 231.0
+margin_right = 771.0
+margin_bottom = 287.0
+custom_fonts/font = ExtResource( 1 )
+text = "Move Down : S"
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 308.0
+margin_right = 771.0
+margin_bottom = 364.0
+custom_fonts/font = ExtResource( 1 )
+text = "Shoot : Mouse Left Click"
+
+[node name="Label6" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 385.0
+margin_right = 771.0
+margin_bottom = 441.0
+custom_fonts/font = ExtResource( 1 )
+text = "Pick Up : E"
+
+[node name="Label7" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 462.0
+margin_right = 771.0
+margin_bottom = 518.0
+custom_fonts/font = ExtResource( 1 )
+text = "Heal : Q"
+
+[node name="Label8" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 539.0
+margin_right = 771.0
+margin_bottom = 595.0
+custom_fonts/font = ExtResource( 1 )
+text = "Interact : F"
+
+[node name="Label9" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 616.0
+margin_right = 771.0
+margin_bottom = 672.0
+custom_fonts/font = ExtResource( 1 )
+text = "Fire Spell : X"
+
+[node name="Label10" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 693.0
+margin_right = 771.0
+margin_bottom = 749.0
+custom_fonts/font = ExtResource( 1 )
+text = "Ice Spell : C"
+
+[node name="Label11" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 770.0
+margin_right = 771.0
+margin_bottom = 826.0
+custom_fonts/font = ExtResource( 1 )
+text = "Lightning Spell : V"
+
+[node name="Label12" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 847.0
+margin_right = 771.0
+margin_bottom = 903.0
+custom_fonts/font = ExtResource( 1 )
+text = "Emblem Ability : Y"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 825.0
+margin_right = 1720.0
+margin_bottom = 903.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.16
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 4.0
+margin_right = 895.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer"]
+margin_right = 257.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer"]
+margin_left = 261.0
+margin_top = 22.0
+margin_right = 895.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.46
+custom_fonts/font = ExtResource( 1 )
+text = "Add Heal Kit"
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 117.0
+margin_right = 895.0
+margin_bottom = 217.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer2"]
+margin_right = 257.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer2"]
+margin_left = 261.0
+margin_top = 22.0
+margin_right = 895.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.46
+custom_fonts/font = ExtResource( 1 )
+text = "Increase Maximum Health"
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 231.0
+margin_right = 895.0
+margin_bottom = 331.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer3"]
+margin_right = 257.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer3"]
+margin_left = 261.0
+margin_top = 22.0
+margin_right = 895.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.46
+custom_fonts/font = ExtResource( 1 )
+text = "Increase Heal Power"
+
+[node name="VBoxContainer4" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 344.0
+margin_right = 895.0
+margin_bottom = 444.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer4"]
+margin_right = 257.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer4"]
+margin_left = 261.0
+margin_top = 22.0
+margin_right = 895.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.46
+custom_fonts/font = ExtResource( 1 )
+text = "Health Regeneration"
+
+[node name="VBoxContainer5" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 457.0
+margin_right = 895.0
+margin_bottom = 557.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer5"]
+margin_right = 257.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer5"]
+margin_left = 261.0
+margin_top = 22.0
+margin_right = 895.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.46
+custom_fonts/font = ExtResource( 1 )
+text = "Increase Heal Kit Slot"
+
+[node name="VBoxContainer6" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 571.0
+margin_right = 895.0
+margin_bottom = 671.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer6"]
+margin_right = 257.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer6"]
+margin_left = 261.0
+margin_top = 22.0
+margin_right = 895.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.46
+custom_fonts/font = ExtResource( 1 )
+text = "Add Fire Fragment"
+
+[node name="VBoxContainer7" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 684.0
+margin_right = 895.0
+margin_bottom = 784.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer7"]
+margin_right = 257.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer7"]
+margin_left = 261.0
+margin_top = 22.0
+margin_right = 895.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.46
+custom_fonts/font = ExtResource( 1 )
+text = "Add Ice Fragment"
+
+[node name="VBoxContainer8" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 798.0
+margin_right = 895.0
+margin_bottom = 898.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer8"]
+margin_right = 257.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer8"]
+margin_left = 261.0
+margin_top = 22.0
+margin_right = 895.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.46
+custom_fonts/font = ExtResource( 1 )
+text = "Add Lightning Fragment"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 12.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+text = "Cancel"
+icon = ExtResource( 11 )

@@ -27,6 +27,9 @@ custom_fonts/font = ExtResource( 5 )
 text = "forgoten Robot"
 uppercase = true
 
+[node name="CurrentLevel" parent="CanvasLayer" index="2"]
+visible = false
+
 [node name="PauseScreen" parent="CanvasLayer" index="4"]
 visible = false
 
