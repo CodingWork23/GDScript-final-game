@@ -2,9 +2,10 @@
 
 [ext_resource path="res://interface/theme/Interface.theme" type="Theme" id=1]
 [ext_resource path="res://interface/WinGame.gd" type="Script" id=2]
-[ext_resource path="res://interface/MenuBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/menu/MenuBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/theme/title_font_large.tres" type="DynamicFont" id=4]
 [ext_resource path="res://robot/robot_stats.tres" type="Resource" id=5]
+
 
 [node name="WinGame" type="Control"]
 anchor_right = 1.0

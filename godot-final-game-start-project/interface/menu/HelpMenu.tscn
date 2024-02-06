@@ -11,7 +11,8 @@
 [ext_resource path="res://pickups/health/pickup_regeneration/pickup_heart_teal.png" type="Texture" id=9]
 [ext_resource path="res://interface/theme/Interface.theme" type="Theme" id=10]
 [ext_resource path="res://common/pickup-cannon.svg" type="Texture" id=11]
-[ext_resource path="res://interface/HelpMenu.gd" type="Script" id=12]
+[ext_resource path="res://interface/menu/HelpMenu.gd" type="Script" id=12]
+
 
 [node name="HelpMenu" type="Control"]
 anchor_right = 1.0
