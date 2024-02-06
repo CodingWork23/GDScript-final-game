@@ -1,0 +1,1132 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://interface/theme/title_font_large.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface/theme/Interface.theme" type="Theme" id=2]
+[ext_resource path="res://interface/menu/MenuBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://props/sky/rock_float_05.png" type="Texture" id=4]
+[ext_resource path="res://props/sky/pillar_broken_01.png" type="Texture" id=5]
+[ext_resource path="res://props/sky/town_float_01.png" type="Texture" id=6]
+[ext_resource path="res://props/sky/town_float_02.png" type="Texture" id=7]
+[ext_resource path="res://mobs/sword/sword_inactive.png" type="Texture" id=8]
+[ext_resource path="res://mobs/bomb/bomb_inactive.png" type="Texture" id=9]
+[ext_resource path="res://mobs/shield/shield_inactive.png" type="Texture" id=10]
+[ext_resource path="res://robot/robot_sprites.png" type="Texture" id=11]
+[ext_resource path="res://props/sky/rock_float_03.png" type="Texture" id=12]
+[ext_resource path="res://props/sky/rock_float_01.png" type="Texture" id=13]
+[ext_resource path="res://mobs/dummy/dummy.png" type="Texture" id=14]
+[ext_resource path="res://interface/menu/MainMenu.gd" type="Script" id=15]
+[ext_resource path="res://robot/robot_stats.tres" type="Resource" id=16]
+[ext_resource path="res://game_events.tres" type="Resource" id=17]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Towns/TextureRect5:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 183, 581 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Towns/TextureRect5:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Towns/TextureRect2:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1661, 678 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Towns/TextureRect2:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Towns/TextureRect6:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1572, 860 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Towns/TextureRect6:rect_rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -15.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Towns/TextureRect:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1443, 595 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Towns/TextureRect:rect_rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Towns/TextureRect3:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 246, 900 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Towns/TextureRect3:rect_rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Towns/TextureRect4:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1488, 956 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Towns/TextureRect4:rect_rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Control/Sword:rect_position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 711, 573.5 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Control/Sword:rect_rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -105.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Control/Shield:rect_position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 203, 456 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Control/Shield:rect_rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 15.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Control/Robot:rect_position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 426, 437.5 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Control/Robot:rect_rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Control/Dummy:rect_position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 887, 352 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Control/Dummy:rect_rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -44.9999 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Control/Bomb:rect_position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -23.5, 345 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Control/Bomb:rect_rotation")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 15.0 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("MenuBackground/CloudsLeft:rect_position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 446.998 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("MenuBackground/CloudsLeft:rect_rotation")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("MenuBackground/CloudsRight:rect_position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1069, 468.998 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("MenuBackground/CloudsRight:rect_rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("CenterContainer:modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("CenterContainer:mouse_filter")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "hover"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Towns/TextureRect5:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 183, 581 ), Vector2( 184, 592 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Towns/TextureRect5:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/Sword:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 711, 573.5 ), Vector2( 714, 592.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/Sword:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -105.0, -105.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control/Shield:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 203, 456 ), Vector2( 202, 484.5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Control/Shield:rect_rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 15.0, 15.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Towns/TextureRect2:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1661, 678 ), Vector2( 1661, 697 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Towns/TextureRect2:rect_rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Towns/TextureRect6:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1572, 860 ), Vector2( 1584, 890 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Towns/TextureRect6:rect_rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -15.0, -15.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Towns/TextureRect:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1443, 595 ), Vector2( 1443, 606 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Towns/TextureRect:rect_rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Towns/TextureRect3:rect_position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 246, 900 ), Vector2( 245, 931 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Towns/TextureRect3:rect_rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Control/Robot:rect_position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 426, 437.5 ), Vector2( 426, 457.731 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Control/Robot:rect_rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Towns/TextureRect4:rect_position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1488, 956 ), Vector2( 1487, 983 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Towns/TextureRect4:rect_rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Control/Dummy:rect_position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 887, 352 ), Vector2( 891, 377.5 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Control/Dummy:rect_rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -44.9999, -44.9999 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Control/Bomb:rect_position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( -23.5, 345 ), Vector2( -24.5, 362 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Control/Bomb:rect_rotation")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 15.0, 15.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Towns/TextureRect5:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00501867, 3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -223, 616 ), Vector2( 183, 581 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Towns/TextureRect5:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Towns/TextureRect2:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.00501867, 3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1981, 798 ), Vector2( 1661, 678 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Towns/TextureRect2:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Towns/TextureRect6:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.00501867, 3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1890, 1143 ), Vector2( 1572, 860 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Towns/TextureRect6:rect_rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -15.0, -15.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Towns/TextureRect:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.00501867, 3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 2036, 571 ), Vector2( 1443, 595 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Towns/TextureRect:rect_rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Towns/TextureRect3:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.00501867, 3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 48, 1159 ), Vector2( 246, 900 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Towns/TextureRect3:rect_rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Towns/TextureRect4:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1646, 1268 ), Vector2( 1488, 956 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Towns/TextureRect4:rect_rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Control/Sword:rect_position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 0.267944, 1 ),
+"update": 0,
+"values": [ Vector2( 745, 709.5 ), Vector2( 711, 573.5 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Control/Sword:rect_rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -105.0, -105.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Control/Shield:rect_position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 0.267944, 1 ),
+"update": 0,
+"values": [ Vector2( 166.5, 579.5 ), Vector2( 203, 456 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Control/Shield:rect_rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 15.0, 15.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Control/Robot:rect_position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 0.267944, 1 ),
+"update": 0,
+"values": [ Vector2( 426, 550 ), Vector2( 426, 437.5 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Control/Robot:rect_rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Control/Dummy:rect_position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 0.267944, 1 ),
+"update": 0,
+"values": [ Vector2( 996.5, 463 ), Vector2( 887, 352 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Control/Dummy:rect_rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -44.9999, -44.9999 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Control/Bomb:rect_position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 0.267944, 1 ),
+"update": 0,
+"values": [ Vector2( -111.5, 477.5 ), Vector2( -23.5, 345 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Control/Bomb:rect_rotation")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 15.0, 15.0 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("MenuBackground/CloudsLeft:rect_position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( -800, 446 ), Vector2( 0, 447 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("MenuBackground/CloudsLeft:rect_rotation")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("MenuBackground/CloudsRight:rect_position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1700, 468 ), Vector2( 1069, 469 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("MenuBackground/CloudsRight:rect_rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("CenterContainer:modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0, 0.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("CenterContainer:mouse_filter")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 15 )
+game_events = ExtResource( 17 )
+robot_stats = ExtResource( 16 )
+
+[node name="MenuBackground" parent="." instance=ExtResource( 3 )]
+
+[node name="CloudsLeft" parent="MenuBackground" index="0"]
+margin_top = -634.002
+margin_bottom = 0.00964355
+
+[node name="CloudsRight" parent="MenuBackground" index="1"]
+margin_left = -854.002
+margin_top = -612.002
+margin_right = 0.00878906
+margin_bottom = 0.00964355
+
+[node name="Towns" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureRect5" type="TextureRect" parent="Towns"]
+margin_left = 183.0
+margin_top = 581.0
+margin_right = 237.0
+margin_bottom = 641.0
+texture = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Towns"]
+margin_left = 1443.0
+margin_top = 595.0
+margin_right = 1507.0
+margin_bottom = 653.0
+texture = ExtResource( 7 )
+
+[node name="TextureRect2" type="TextureRect" parent="Towns"]
+margin_left = 1661.0
+margin_top = 678.0
+margin_right = 1731.0
+margin_bottom = 765.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect3" type="TextureRect" parent="Towns"]
+margin_left = 246.0
+margin_top = 900.0
+margin_right = 330.005
+margin_bottom = 1006.01
+texture = ExtResource( 12 )
+
+[node name="TextureRect4" type="TextureRect" parent="Towns"]
+margin_left = 1488.0
+margin_top = 956.0
+margin_right = 1532.0
+margin_bottom = 1022.01
+texture = ExtResource( 13 )
+
+[node name="TextureRect6" type="TextureRect" parent="Towns"]
+margin_left = 1572.0
+margin_top = 860.0
+margin_right = 1704.0
+margin_bottom = 984.003
+rect_rotation = -15.0
+texture = ExtResource( 4 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="Robot" type="TextureRect" parent="Control"]
+margin_left = 426.0
+margin_top = 437.5
+margin_right = 536.0
+margin_bottom = 562.49
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 2
+
+[node name="Sword" type="TextureRect" parent="Control"]
+margin_left = 711.0
+margin_top = 573.5
+margin_right = 848.0
+margin_bottom = 633.5
+rect_rotation = -105.0
+texture = ExtResource( 8 )
+
+[node name="Shield" type="TextureRect" parent="Control"]
+margin_left = 203.0
+margin_top = 456.0
+margin_right = 302.005
+margin_bottom = 531.02
+rect_rotation = 15.0
+texture = ExtResource( 10 )
+
+[node name="Bomb" type="TextureRect" parent="Control"]
+margin_left = -23.5
+margin_top = 345.0
+margin_right = 107.5
+margin_bottom = 476.0
+rect_rotation = 15.0
+texture = ExtResource( 9 )
+
+[node name="Dummy" type="TextureRect" parent="Control"]
+margin_left = 887.0
+margin_top = 352.0
+margin_right = 959.0
+margin_bottom = 455.001
+rect_rotation = -44.9999
+texture = ExtResource( 14 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 660.0
+margin_top = 361.0
+margin_right = 1260.0
+margin_bottom = 718.0
+rect_min_size = Vector2( 600, 0 )
+size_flags_vertical = 3
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 89.0
+custom_fonts/font = ExtResource( 1 )
+text = "Robot Island"
+align = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+margin_top = 113.0
+margin_right = 600.0
+margin_bottom = 117.0
+
+[node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 141.0
+margin_right = 600.0
+margin_bottom = 197.0
+text = "New Game"
+
+[node name="ContinueGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 221.0
+margin_right = 600.0
+margin_bottom = 277.0
+text = "Continue Game"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 301.0
+margin_right = 600.0
+margin_bottom = 357.0
+text = "Quit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+anims/RESET = SubResource( 1 )
+anims/hover = SubResource( 3 )
+anims/start = SubResource( 2 )
+
+[editable path="MenuBackground"]

@@ -54,3 +54,8 @@ func set_extra_payment(new_value: int) -> void:
 
 func increase_extra_payment(increase_value: int = 25) -> void:
 	set_extra_payment(extra_payment + increase_value)
+
+func reset_level() -> void:
+	set_current_level(1)
+	set_current_difficulty(Difficulty.EASY)
+	save()

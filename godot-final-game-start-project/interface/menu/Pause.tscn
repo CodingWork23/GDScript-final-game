@@ -6,7 +6,6 @@
 [ext_resource path="res://robot/robot_stats.tres" type="Resource" id=4]
 [ext_resource path="res://interface/menu/HelpMenu.tscn" type="PackedScene" id=5]
 
-
 [node name="PauseScreen" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
