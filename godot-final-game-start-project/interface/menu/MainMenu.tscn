@@ -989,14 +989,14 @@ robot_stats = ExtResource( 16 )
 [node name="MenuBackground" parent="." instance=ExtResource( 3 )]
 
 [node name="CloudsLeft" parent="MenuBackground" index="0"]
-margin_top = -634.002
-margin_bottom = 0.00964355
+margin_top = 446.998
+margin_bottom = 1081.01
 
 [node name="CloudsRight" parent="MenuBackground" index="1"]
-margin_left = -854.002
-margin_top = -612.002
-margin_right = 0.00878906
-margin_bottom = 0.00964355
+margin_left = 1069.0
+margin_top = 468.998
+margin_right = 1923.01
+margin_bottom = 1081.01
 
 [node name="Towns" type="Control" parent="."]
 margin_right = 40.0

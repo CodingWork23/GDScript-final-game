@@ -123,7 +123,6 @@ spawn_chance = 20.0
 
 [node name="ForgotenRobot" parent="Mobs" index="17" instance=ExtResource( 12 )]
 position = Vector2( 1920, 1280 )
-health = 1
 
 [node name="SpawnerPickups" parent="Items" index="0" instance=ExtResource( 9 )]
 position = Vector2( 576, 1792 )
@@ -156,7 +155,7 @@ game_events = null
 spawn_chance = 20.0
 
 [node name="SpawnerRobot" parent="." index="8"]
-position = Vector2( 1920, 640 )
+position = Vector2( 3620, 4980 )
 
 [node name="SpawnerTeleporter" parent="." index="9"]
 position = Vector2( 1920, -896 )
