@@ -47,7 +47,7 @@ func drop_product() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("picking_up") and robot and product_path:
+	if event.is_action_pressed("interact") and robot and product_path:
 		emit_signal("buy_product", robot, product_path, self)
 
 

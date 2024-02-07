@@ -648,7 +648,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.00501867, 3 ),
+"times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( -223, 616 ), Vector2( 183, 581 ) ]
@@ -672,7 +672,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.00501867, 3 ),
+"times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 1981, 798 ), Vector2( 1661, 678 ) ]
@@ -696,7 +696,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.00501867, 3 ),
+"times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 1890, 1143 ), Vector2( 1572, 860 ) ]
@@ -720,7 +720,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0.00501867, 3 ),
+"times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 2036, 571 ), Vector2( 1443, 595 ) ]
@@ -744,7 +744,7 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0.00501867, 3 ),
+"times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 48, 1159 ), Vector2( 246, 900 ) ]
@@ -965,18 +965,6 @@ tracks/26/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/27/type = "value"
-tracks/27/path = NodePath("CenterContainer:mouse_filter")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 2, 0 ]
-}
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -989,14 +977,14 @@ robot_stats = ExtResource( 16 )
 [node name="MenuBackground" parent="." instance=ExtResource( 3 )]
 
 [node name="CloudsLeft" parent="MenuBackground" index="0"]
-margin_top = 446.998
-margin_bottom = 1081.01
+margin_top = -634.002
+margin_bottom = 0.0131836
 
 [node name="CloudsRight" parent="MenuBackground" index="1"]
-margin_left = 1069.0
-margin_top = 468.998
-margin_right = 1923.01
-margin_bottom = 1081.01
+margin_left = -854.0
+margin_top = -612.002
+margin_right = 0.0141602
+margin_bottom = 0.0131836
 
 [node name="Towns" type="Control" parent="."]
 margin_right = 40.0
@@ -1054,7 +1042,7 @@ rect_scale = Vector2( 2, 2 )
 margin_left = 426.0
 margin_top = 437.5
 margin_right = 536.0
-margin_bottom = 562.49
+margin_bottom = 562.489
 texture = ExtResource( 11 )
 expand = true
 stretch_mode = 2
@@ -1071,7 +1059,7 @@ texture = ExtResource( 8 )
 margin_left = 203.0
 margin_top = 456.0
 margin_right = 302.005
-margin_bottom = 531.02
+margin_bottom = 531.023
 rect_rotation = 15.0
 texture = ExtResource( 10 )
 
@@ -1138,6 +1126,7 @@ text = "Quit"
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 1, 1, 1, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

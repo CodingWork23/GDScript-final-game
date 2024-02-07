@@ -23,7 +23,7 @@ func _ready() -> void:
 	detection_zone.connect("body_exited", self, "_on_DetectionZone_body_exited")
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("picking_up") and robot:
+	if event.is_action_pressed("interact") and robot:
 		open_chest()
 
 func open_chest() -> void:

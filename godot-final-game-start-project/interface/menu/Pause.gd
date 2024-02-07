@@ -22,9 +22,8 @@ func _ready() -> void:
 	help_menu.connect("close", self, "_on_CancelButton_pressed")
 
 func _on_QuitButton_pressed() -> void:
-	if robot_stats:
-		robot_stats.reset_stats()
-	get_tree().quit()
+	get_tree().paused = false
+	get_tree().change_scene("res://interface/menu/MainMenu.tscn")
 
 func _on_RestartButton_pressed() -> void:
 	if robot_stats:
